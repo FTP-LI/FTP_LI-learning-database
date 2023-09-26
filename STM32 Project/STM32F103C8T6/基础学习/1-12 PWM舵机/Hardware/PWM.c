@@ -8,7 +8,7 @@ void PWM_Init(void)
 		
 		GPIO_InitTypeDef GPIO_Iitstructure;
 		GPIO_Iitstructure.GPIO_Mode = GPIO_Mode_AF_PP;//复用推挽输出模式（允许定时器控制引脚，使用复用相关模式）
-		GPIO_Iitstructure.GPIO_Pin = GPIO_Pin_1;//启用1
+		GPIO_Iitstructure.GPIO_Pin = GPIO_Pin_0|GPIO_Pin_1;//启用1
 		GPIO_Iitstructure.GPIO_Speed = GPIO_Speed_50MHz;//引脚速度50MHz
 		GPIO_Init(GPIOA,&GPIO_Iitstructure);
 		
@@ -29,6 +29,7 @@ void PWM_Init(void)
 		TMO_OCInitstructure.TIM_OCPolarity = TIM_OCPolarity_High ;//OC极性为高极性，REF波形直接输出，当REF有效时输出高电平
 		TMO_OCInitstructure.TIM_OutputState = TIM_OutputState_Enable ;//启用输出（输出使能）
 		TMO_OCInitstructure.TIM_Pulse = 0;//设定CCR的值(500~2500;对应-90~+90度 1500为0度 2000为+45度)
+        TIM_OC1Init(TIM2,&TMO_OCInitstructure);
 		TIM_OC2Init(TIM2,&TMO_OCInitstructure);
 		
 		
@@ -39,6 +40,10 @@ void PWM_Init(void)
 void PWM_SetCompare2(uint16_t Compare)
 {
 	TIM_SetCompare2(TIM2,Compare);//在运行过程中更改CCR的值
+}
+void PWM_SetCompare1(uint16_t Compare)
+{
+    TIM_SetCompare1(TIM2,Compare);//在运行过程中更改CCR的值
 }
 /*
 PWM频率 Freq=时钟频率/（PSC+1）/（ARR+1）
