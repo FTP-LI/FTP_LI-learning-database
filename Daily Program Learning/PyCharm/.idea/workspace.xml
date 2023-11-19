@@ -1,7 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="dacbe5b7-0e11-45d2-9478-c865b6a004b7" name="Changes" comment="" />
+    <list default="true" id="dacbe5b7-0e11-45d2-9478-c865b6a004b7" name="Changes" comment="Changes">
+      <change afterPath="$PROJECT_DIR$/Learn" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test1 helo world/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/test1 helo world/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../VScode/.vscode/settings.json" beforeDir="false" afterPath="$PROJECT_DIR$/../VScode/.vscode/settings.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../STM32 Project/STM32F103C8T6/基础学习/1-2 LED/Project.uvguix.ATLAS" beforeDir="false" afterPath="$PROJECT_DIR$/../../STM32 Project/STM32F103C8T6/基础学习/1-2 LED/Project.uvguix.ATLAS" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../STM32 Project/STM32F103C8T6/基础学习/1-2 LED/Project.uvoptx" beforeDir="false" afterPath="$PROJECT_DIR$/../../STM32 Project/STM32F103C8T6/基础学习/1-2 LED/Project.uvoptx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../STM32 Project/STM32F103C8T6/基础学习/1-3 LED流水灯/Project.uvguix.ATLAS" beforeDir="false" afterPath="$PROJECT_DIR$/../../STM32 Project/STM32F103C8T6/基础学习/1-3 LED流水灯/Project.uvguix.ATLAS" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../STM32 Project/STM32F103C8T6/基础学习/1-3 LED流水灯/Project.uvoptx" beforeDir="false" afterPath="$PROJECT_DIR$/../../STM32 Project/STM32F103C8T6/基础学习/1-3 LED流水灯/Project.uvoptx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../STM32 Project/STM32F103C8T6/进阶项目/基于STM32F103C8T6 采用2.4G通信-遥控小车/接收器/源码/Project.uvguix.ATLAS" beforeDir="false" afterPath="$PROJECT_DIR$/../../STM32 Project/STM32F103C8T6/进阶项目/基于STM32F103C8T6 采用2.4G通信-遥控小车/接收器/源码/Project.uvguix.ATLAS" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../STM32 Project/STM32F103C8T6/进阶项目/基于STM32F103C8T6 采用2.4G通信-遥控小车/遥控器/源码/Project.uvguix.ATLAS" beforeDir="false" afterPath="$PROJECT_DIR$/../../STM32 Project/STM32F103C8T6/进阶项目/基于STM32F103C8T6 采用2.4G通信-遥控小车/遥控器/源码/Project.uvguix.ATLAS" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -21,6 +35,12 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;
+  }
+}</component>
   <component name="RunManager">
     <configuration name="main" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="PyCharm" />

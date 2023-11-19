@@ -1,0 +1,21 @@
+data = xlsread('data.xlsx', 'Sheet1', 'A:B');
+x = data(:, 1); % D列数据作为x轴
+y = data(:, 2); % E列数据作为y轴
+
+% 多项式拟合
+degree = 1; % 拟合多项式的次数
+poti = polyfit(x, y, degree);
+
+xFit = min(x):0.1:max(x);
+yFit = polyval(poti, xFit);
+
+plot(x, y, 'o', xFit, yFit);
+xlabel('体重/KG');
+ylabel('');
+title('体重与身高关系');
+legend('数据样本', '拟合曲线');
+% 绘制拟合函数图像
+
+fitFunction = poly2str(poti, 'x');
+fprintf('拟合的函数为: %s\n', fitFunction);
+
