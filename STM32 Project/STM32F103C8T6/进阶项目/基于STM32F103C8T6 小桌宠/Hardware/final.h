@@ -1,6 +1,8 @@
 #ifndef _FINAL_H_
 #define _FINAL_H_
 
+/*本头文件相关函数均在.C文件中有说明，不再重复*/
+
 void Final_Init(void);
 void crol(void);
 void move_restop(void);

@@ -1,0 +1,72 @@
+C51 COMPILER V9.59.0.0   KEY                                                               01/03/2024 21:16:40 PAGE 1   
+
+
+C51 COMPILER V9.59.0.0, COMPILATION OF MODULE KEY
+OBJECT MODULE PLACED IN .\Objects\KEY.obj
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE Hardware\KEY.c LARGE OPTIMIZE(8,SPEED) BROWSE INCDIR(.\Hardware;.\System
+                    -;.\User;C:\Keil_v5\C51\INC\STC) DEBUG OBJECTEXTEND PRINT(.\Listings\KEY.lst) OBJECT(.\Objects\KEY.obj)
+
+line level    source
+
+   1          #include <STC15F2K60S2.H>
+   2          #include "KEY.h"
+   3          #include "Delay.h"
+   4          
+   5          sbit KEY1=P0^0;
+   6          sbit KEY2=P0^2;
+   7          sbit KEY3=P0^3;
+   8          sbit KEY4=P0^4;
+   9          
+  10          #define KEY1_PRESS      1
+  11          #define KEY2_PRESS      2
+  12          #define KEY3_PRESS      3
+  13          #define KEY4_PRESS      4
+  14          #define KEY_NOPRESS     0
+  15          
+  16          uint8_t signkey(void)
+  17          {
+  18   1          if(KEY1==0)
+  19   1          {
+  20   2              delay_ms(15);
+  21   2              if(KEY1==0)
+  22   2              {
+  23   3                  return KEY1_PRESS;
+  24   3              }
+  25   2          }
+  26   1          return KEY_NOPRESS;
+  27   1      }
+  28          
+  29          uint8_t key_scan(void)
+  30          {
+  31   1              if(KEY1==0||KEY2==0||KEY3==0||KEY4==0)//任意按键按下
+  32   1              {
+  33   2                      delay_ms(15);//消抖
+  34   2                      if(KEY1==0)
+  35   2                              return KEY1_PRESS;
+  36   2                      else if(KEY2==0)
+  37   2                              return KEY2_PRESS;
+  38   2                      else if(KEY3==0)
+  39   2                              return KEY3_PRESS;
+  40   2                      else if(KEY4==0)
+  41   2                              return KEY4_PRESS;
+  42   2              else
+  43   2                  return KEY_NOPRESS;
+  44   2              }
+  45   1          return KEY_NOPRESS;
+  46   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     76    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+C51 COMPILER V9.59.0.0   KEY                                                               01/03/2024 21:16:40 PAGE 2   
+
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

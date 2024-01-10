@@ -3,6 +3,8 @@
 
 #include "stm32f10x.h"                  // Device header
 
+/*本函数为软件模拟SPI通信对接NRF24L01模块，引脚定义表在NRF24L01_Ins.h文件中*/
+
 void NRF24L01_RT_Init(void);                                                //模块配置初始化
 void NRF24L01_Pin_Init(void);                                               //模块引脚初始化
 void NRF24L01_Init(void);                                                   //模块初始化

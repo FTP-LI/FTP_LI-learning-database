@@ -8,14 +8,14 @@
 #define SCK_Port	GPIOA
 #define MOSI_Port	GPIOA
 #define MISO_Port	GPIOA
-
+//引脚片区
 #define IRQ_Pin		GPIO_Pin_1
 #define CE_Pin		GPIO_Pin_0
 #define CSN_Pin		GPIO_Pin_4
 #define SCK_Pin		GPIO_Pin_5
 #define MOSI_Pin	GPIO_Pin_7
 #define MISO_Pin	GPIO_Pin_6
-
+//具体引脚
 /**********  NRF24L01寄存器操作命令  ***********/
 #define nRF_READ_REG        0x00 
 #define nRF_WRITE_REG       0x20 

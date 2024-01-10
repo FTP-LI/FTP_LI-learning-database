@@ -28,10 +28,10 @@
 .\objects\final.o: .\Library\stm32f10x_usart.h
 .\objects\final.o: .\Library\stm32f10x_wwdg.h
 .\objects\final.o: .\Library\misc.h
+.\objects\final.o: .\System\Delay.h
+.\objects\final.o: Hardware\final.h
 .\objects\final.o: Hardware\Servo.h
 .\objects\final.o: Hardware\NRF24L01.h
 .\objects\final.o: Hardware\OLED.h
 .\objects\final.o: Hardware\key.h
-.\objects\final.o: Hardware\final.h
-.\objects\final.o: .\System\Delay.h
 .\objects\final.o: Hardware\LED.h

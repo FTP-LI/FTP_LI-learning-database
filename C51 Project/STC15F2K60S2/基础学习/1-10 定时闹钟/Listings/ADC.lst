@@ -1,0 +1,63 @@
+C51 COMPILER V9.59.0.0   ADC                                                               01/03/2024 22:33:16 PAGE 1   
+
+
+C51 COMPILER V9.59.0.0, COMPILATION OF MODULE ADC
+OBJECT MODULE PLACED IN .\Objects\ADC.obj
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE Hardware\ADC.c LARGE OPTIMIZE(8,SPEED) BROWSE INCDIR(.\Hardware;.\System
+                    -;.\User;C:\Keil_v5\C51\INC\STC) DEBUG OBJECTEXTEND PRINT(.\Listings\ADC.lst) OBJECT(.\Objects\ADC.obj)
+
+line level    source
+
+   1          #include <STC15F2K60S2.H>
+   2          #include <intrins.h>
+   3          #include "Sys.h"
+   4          #include "ADC.h"
+   5          #include "Delay.h"
+   6          
+   7          #define ADC_POWER 0x80
+   8          #define ADC_START 0x08
+   9          #define ADC_FLAG 0x10
+  10          #define ADC_SPEEDH 0x40                     //转换速度为180个时钟周期
+  11          #define ADRJ 0x20                           //ADRJ = 1;
+  12          #define AD_P1_0 0x00                        //P1.0为AD输入;
+  13          
+  14          sfr PCON2 = 0x97;
+  15          
+  16          void ADC_Init(void)
+  17          {
+  18   1             P1ASF= 0x01;                         //设置P1为模拟输入端口  
+  19   1             PCON2= PCON2 | ADRJ;           //ADRJ  = 1;
+  20   1             ADC_CONTR= ADC_POWER | ADC_SPEEDH | AD_P1_0;
+  21   1             //设置A/D电源开启、转换速度设置、A/D输入端口；
+  22   1             delay_ms(5);//等待电源稳定    
+  23   1      }
+  24          
+  25          unsigned int Gat_ADC(void)//电压=（5/1024=0.004882）*AD值
+  26          {
+  27   1             uint16_t i,j,AD_Vaule;
+  28   1             ADC_CONTR= ADC_CONTR | ADC_START;                 //开始转换
+  29   1             while((ADC_CONTR& ADC_FLAG) != ADC_FLAG);    //等待转换标志置位
+  30   1             i= ADC_RES;  //高两位
+  31   1             j= ADC_RESL; //低八位
+  32   1             i= i << 8;
+  33   1             i= i | j;
+  34   1             ADC_CONTR= ADC_CONTR & ~ADC_FLAG ;                   //清零转换标志位
+  35   1             ADC_RES= 0;
+  36   1             ADC_RESL= 0;
+  37   1             AD_Vaule=i;
+  38   1             return(AD_Vaule);
+  39   1          }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     48    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

@@ -1,0 +1,16 @@
+".\Objects\STARTUP.obj",
+".\Objects\main.obj",
+".\Objects\ADC.obj",
+".\Objects\OLED.obj",
+".\Objects\TM1637.obj",
+".\Objects\DHT11.obj",
+".\Objects\PWM.obj",
+".\Objects\DS1302.obj",
+".\Objects\LED.obj",
+".\Objects\BUZZER.obj",
+".\Objects\DS18B20.obj",
+".\Objects\KEY.obj",
+".\Objects\Delay.obj" 
+TO ".\Objects\Project" 
+PRINT(".\Listings\Project.m51") RAMSIZE(256) 
+DISABLEWARNING (16) 

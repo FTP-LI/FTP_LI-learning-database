@@ -1,0 +1,66 @@
+C51 COMPILER V9.59.0.0   DHT11                                                             01/02/2024 00:06:49 PAGE 1   
+
+
+C51 COMPILER V9.59.0.0, COMPILATION OF MODULE DHT11
+OBJECT MODULE PLACED IN .\Objects\DHT11.obj
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE Hardware\DHT11.c OPTIMIZE(8,SPEED) BROWSE INCDIR(.\Hardware;.\System;.\U
+                    -ser) DEBUG OBJECTEXTEND PRINT(.\Listings\DHT11.lst) OBJECT(.\Objects\DHT11.obj)
+
+line level    source
+
+   1          #include <REG51.H>
+   2          #include "Delay.h"
+   3          
+   4          sbit DHT = P1^3;
+   5          
+   6          extern uint16_t datas [5];//8bit湿度整数数据+8bit湿度小数数据+8bi温度整数数据+8bit温度小数数据+8bit校验和
+   7          
+   8          void DHT11_start(void)
+   9          {
+  10   1              DHT=1;
+  11   1              DHT=0;
+  12   1              delay_ms(30);
+  13   1              DHT = 1;
+  14   1              while(DHT);
+  15   1              while(!DHT);
+  16   1              while(DHT);
+  17   1      }
+  18          
+  19          
+  20          void Read_Data_From_DHT(void)
+  21          {
+  22   1              int i;
+  23   1              int j;
+  24   1              char tmp;
+  25   1              char flag;
+  26   1              DHT11_start();
+  27   1              for(i=0;i<5;i++){
+  28   2                      for(j=0;j<8;j++){
+  29   3                              while(!DHT);//有效数据都是高电平
+  30   3                              delay_us(40);
+  31   3                              if(DHT == 1){
+  32   4                                      flag=1; //数据位是1
+  33   4                                      while(DHT);//数据位是1，持续70us,所以卡个临界点
+  34   4                              }else{
+  35   4                                      flag = 0;//数据位是0
+  36   4                              }
+  37   3                              tmp = tmp << 1;//左移一位
+  38   3                              tmp |= flag; //将一位数据位0或1存入tmp
+  39   3                      }
+  40   2                      datas[i] = tmp;
+  41   2              }
+  42   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    136    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----       6
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

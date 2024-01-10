@@ -1,0 +1,331 @@
+C51 COMPILER V9.59.0.0   DS1302                                                            01/08/2024 20:29:58 PAGE 1   
+
+
+C51 COMPILER V9.59.0.0, COMPILATION OF MODULE DS1302
+OBJECT MODULE PLACED IN .\Objects\DS1302.obj
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE Hardware\DS1302.c LARGE OPTIMIZE(8,SPEED) BROWSE INCDIR(.\Hardware;.\Sys
+                    -tem;.\User;C:\Keil_v5\C51\INC\STC) DEBUG OBJECTEXTEND PRINT(.\Listings\DS1302.lst) OBJECT(.\Objects\DS1302.obj)
+
+line level    source
+
+   1          #include "Ds1302.h"
+   2          
+   3          //接口定义
+   4          
+   5          uint8_t code RTC_ADDR[7] = {DS1302_year, DS1302_mouth, DS1302_week, DS1302_day, DS1302_hour, DS1302_minute
+             -, DS1302_second};
+   6          
+   7          uint8_t TIME_FIR[7] = {24, 1, 1, 1, 0, 0, 0};           //初始时间组，初始化时间2024-1-1星期一0点0分0秒
+   8          uint8_t DS1302_Time[7];                                 //显示时间组，用户函数使用extern调用
+   9          //时间初始值，从左往右 年 月 周 日 时 分 秒
+  10          
+  11          void Ds1302_Write(uint8_t addr, uint8_t dat) //向DS1302命令（地址+数据）
+  12          {
+  13   1              uint8_t n;
+  14   1              RST = 0;
+  15   1              _nop_();
+  16   1              SCLK = 0;                               //先将SCLK置低电平。
+  17   1              _nop_();
+  18   1              RST = 1;                                //然后将RST(CE)置高电平。
+  19   1              _nop_();
+  20   1              for (n=0; n<8; n++)                     //开始传送八位地址命令
+  21   1              {
+  22   2                      DAT = addr & 0x01;                  //数据从低位开始传送
+  23   2                      addr >>= 1;
+  24   2                      SCLK = 1;                           //数据在上升沿时，DS1302读取数据
+  25   2                      _nop_();
+  26   2                      SCLK = 0;
+  27   2                      _nop_();
+  28   2              }
+  29   1              for (n=0; n<8; n++)                     //写入8位数据
+  30   1              {
+  31   2                      DAT = dat & 0x01;
+  32   2                      dat >>= 1;
+  33   2                      SCLK = 1;                           //数据在上升沿时，DS1302读取数据
+  34   2                      _nop_();
+  35   2                      SCLK = 0;
+  36   2                      _nop_();        
+  37   2              }       
+  38   1              RST = 0;                                //传送数据结束
+  39   1              _nop_();
+  40   1      }
+  41          
+  42          uint8_t Ds1302_Read(uint8_t addr)                //读取一个地址的数据
+  43          {
+  44   1              uint8_t n,dat,dat1;
+  45   1          addr|=0x01;                             //将写地址转换为读地址
+  46   1              RST = 0;
+  47   1              _nop_();
+  48   1              SCLK = 0;                               //先将SCLK置低电平。
+  49   1              _nop_();
+  50   1              RST = 1;                                //然后将RST(CE)置高电平。
+  51   1              _nop_();
+  52   1              for(n=0; n<8; n++)                      //开始传送八位地址命令
+  53   1              {
+C51 COMPILER V9.59.0.0   DS1302                                                            01/08/2024 20:29:58 PAGE 2   
+
+  54   2                      DAT = addr & 0x01;                  //数据从低位开始传送
+  55   2                      addr >>= 1;
+  56   2                      SCLK = 1;                           //数据在上升沿时，DS1302读取数据
+  57   2                      _nop_();
+  58   2                      SCLK = 0;                           //DS1302下降沿时，放置数据
+  59   2                      _nop_();
+  60   2              }
+  61   1              _nop_();
+  62   1              for(n=0; n<8; n++)                      //读取8位数据
+  63   1              {
+  64   2                      dat1 = DAT;                         //从最低位开始接收
+  65   2                      dat = (dat>>1) | (dat1<<7);
+  66   2                      SCLK = 1;
+  67   2                      _nop_();
+  68   2                      SCLK = 0;                           //DS1302下降沿时，放置数据
+  69   2                      _nop_();
+  70   2              }
+  71   1              RST = 0;
+  72   1              _nop_();                                    //以下为DS1302复位的稳定时间,必须的。
+  73   1              SCLK = 1;
+  74   1              _nop_();
+  75   1              DAT = 0;
+  76   1              _nop_();
+  77   1              DAT = 1;
+  78   1              _nop_();
+  79   1              return dat;     
+  80   1      }
+  81          
+  82          void Ds1302_Init(void)
+  83          {
+  84   1              Ds1302_Write(DS1302_write_protect,DS1302_write);
+  85   1              Ds1302_Write(DS1302_year,TIME_FIR[0]/10*16+TIME_FIR[0]%10);               
+  86   1              Ds1302_Write(DS1302_mouth,TIME_FIR[1]/10*16+TIME_FIR[1]%10);
+  87   1              Ds1302_Write(DS1302_week,TIME_FIR[2]/10*16+TIME_FIR[2]%10);
+  88   1              Ds1302_Write(DS1302_day,TIME_FIR[3]/10*16+TIME_FIR[3]%10);
+  89   1              Ds1302_Write(DS1302_hour,TIME_FIR[4]/10*16+TIME_FIR[4]%10);
+  90   1              Ds1302_Write(DS1302_minute,TIME_FIR[5]/10*16+TIME_FIR[5]%10);
+  91   1              Ds1302_Write(DS1302_second,TIME_FIR[6]/10*16+TIME_FIR[6]%10);
+  92   1              Ds1302_Write(DS1302_write_protect,DS1302_read);
+  93   1      }
+  94          
+  95          void DS1302_SetTime(void)//设置时间,十进制转BCD码后写入
+  96          {
+  97   1              Ds1302_Write(DS1302_write_protect,DS1302_write);
+  98   1              Ds1302_Write(DS1302_year,DS1302_Time[0]/10*16+DS1302_Time[0]%10);               
+  99   1              Ds1302_Write(DS1302_mouth,DS1302_Time[1]/10*16+DS1302_Time[1]%10);
+ 100   1              Ds1302_Write(DS1302_week,DS1302_Time[2]/10*16+DS1302_Time[2]%10);
+ 101   1              Ds1302_Write(DS1302_day,DS1302_Time[3]/10*16+DS1302_Time[3]%10);
+ 102   1              Ds1302_Write(DS1302_hour,DS1302_Time[4]/10*16+DS1302_Time[4]%10);
+ 103   1              Ds1302_Write(DS1302_minute,DS1302_Time[5]/10*16+DS1302_Time[5]%10);
+ 104   1              Ds1302_Write(DS1302_second,DS1302_Time[6]/10*16+DS1302_Time[6]%10);
+ 105   1              Ds1302_Write(DS1302_write_protect,DS1302_read);
+ 106   1      }//从【0~6】分别是年、月、周、日、时、分、秒
+ 107          
+ 108          void DS1302_ReadTime(void)//读取时间,BCD码转十进制后读取
+ 109          {
+ 110   1              unsigned char Temp;
+ 111   1              Temp=Ds1302_Read(DS1302_year);
+ 112   1              DS1302_Time[0]=Temp/16*10+Temp%16;
+ 113   1              Temp=Ds1302_Read(DS1302_mouth);
+ 114   1              DS1302_Time[1]=Temp/16*10+Temp%16;
+ 115   1              Temp=Ds1302_Read(DS1302_week);
+C51 COMPILER V9.59.0.0   DS1302                                                            01/08/2024 20:29:58 PAGE 3   
+
+ 116   1              DS1302_Time[2]=Temp/16*10+Temp%16;
+ 117   1              Temp=Ds1302_Read(DS1302_day);
+ 118   1              DS1302_Time[3]=Temp/16*10+Temp%16;
+ 119   1              Temp=Ds1302_Read(DS1302_hour);
+ 120   1              DS1302_Time[4]=Temp/16*10+Temp%16;
+ 121   1              Temp=Ds1302_Read(DS1302_minute);
+ 122   1              DS1302_Time[5]=Temp/16*10+Temp%16;
+ 123   1              Temp=Ds1302_Read(DS1302_second);
+ 124   1              DS1302_Time[6]=Temp/16*10+Temp%16;
+ 125   1      }
+ 126          
+ 127          
+ 128          
+ 129          ///************************ 修改时间函数 ************************************/
+ 130          //// mode               0       1       2       3       4       5       6
+ 131          //// 模式               秒      分      时      日      月      周      年
+ 132          ///*************************************************************************/
+ 133          //// sign               1       0
+ 134          //// 正负               +       -
+ 135          ///*************************************************************************/
+ 136          //void Change_time(uchar mode, bit sign)
+ 137          //{     
+ 138          //      switch(mode)
+ 139          //      {
+ 140          //              // 修改 秒
+ 141          //              case 0:
+ 142          //                      if(sign)
+ 143          //                      {                               
+ 144          //                              TIME[0]++;
+ 145          //                              if( (TIME[0] % 16) > 9)
+ 146          //                                      TIME[0] += 6;   
+ 147          //                              if(TIME[0] > 0x59)
+ 148          //                                      TIME[0] = 0x00;                                                                 
+ 149          //                      }
+ 150          //                      else
+ 151          //                      {                               
+ 152          //                              TIME[0]--;
+ 153          //                              if( (TIME[0] % 16) > 9)
+ 154          //                                      TIME[0] -= 6;
+ 155          //                              if(TIME[0] == 0x00)
+ 156          //                                      TIME[0] = 0x59;
+ 157          //                              
+ 158          //                      }                       
+ 159          //                      Ds1302Init();
+ 160          //                      break;
+ 161          //                      
+ 162          //              // 修改 分钟
+ 163          //              case 1:
+ 164          //                      if(sign)
+ 165          //                      {                               
+ 166          //                              TIME[1]++;
+ 167          //                              if( (TIME[1] % 16) > 9)
+ 168          //                                      TIME[1] += 6;   
+ 169          //                              if(TIME[1] > 0x59)
+ 170          //                                      TIME[1] = 0x00;                                                                 
+ 171          //                      }
+ 172          //                      else
+ 173          //                      {                               
+ 174          //                              TIME[1]--;
+ 175          //                              if( (TIME[1] % 16) > 9)
+ 176          //                                      TIME[1] -= 6;
+ 177          //                              if(TIME[1] == 0x00)
+C51 COMPILER V9.59.0.0   DS1302                                                            01/08/2024 20:29:58 PAGE 4   
+
+ 178          //                                      TIME[1] = 0x59;
+ 179          //                              
+ 180          //                      }                       
+ 181          //                      Ds1302Init();
+ 182          //                      break;
+ 183          //                      
+ 184          //              // 修改 小时
+ 185          //              case 2:
+ 186          //                      if(sign)
+ 187          //                      {                               
+ 188          //                              TIME[2]++;
+ 189          //                              if( (TIME[2] % 16) > 9)
+ 190          //                                      TIME[2] += 6;   
+ 191          //                              if(TIME[2] > 0x23)
+ 192          //                                      TIME[2] = 0x00;                                                                 
+ 193          //                      }
+ 194          //                      else
+ 195          //                      {                               
+ 196          //                              TIME[2]--;
+ 197          //                              if( (TIME[2] % 16) > 9)
+ 198          //                                      TIME[2] -= 6;
+ 199          //                              if(TIME[2] == 0x00)
+ 200          //                                      TIME[2] = 0x23;
+ 201          //                              
+ 202          //                      }                       
+ 203          //                      Ds1302Init();
+ 204          //                      break;
+ 205          //                      
+ 206          //              // 修改 日
+ 207          //              case 3:
+ 208          //                      if(sign)
+ 209          //                      {                               
+ 210          //                              TIME[3]++;
+ 211          //                              if( (TIME[3] % 16) > 9)
+ 212          //                                      TIME[3] += 6;   
+ 213          //                              if(TIME[3] > 0x31)
+ 214          //                                      TIME[3] = 0x00;                                                                 
+ 215          //                      }
+ 216          //                      else
+ 217          //                      {                               
+ 218          //                              TIME[3]--;
+ 219          //                              if( (TIME[3] % 16) > 9)
+ 220          //                                      TIME[3] -= 6;
+ 221          //                              if(TIME[3] == 0x00)
+ 222          //                                      TIME[3] = 0x31;
+ 223          //                              
+ 224          //                      }                       
+ 225          //                      Ds1302Init();
+ 226          //                      break;
+ 227          //                      
+ 228          //              // 修改 月
+ 229          //              case 4:
+ 230          //                      if(sign)
+ 231          //                      {                               
+ 232          //                              TIME[4]++;
+ 233          //                              if( (TIME[4] % 16) > 9)
+ 234          //                                      TIME[4] += 6;   
+ 235          //                              if(TIME[4] > 0x12)
+ 236          //                                      TIME[4] = 0x00;                                                                 
+ 237          //                      }
+ 238          //                      else
+ 239          //                      {                               
+C51 COMPILER V9.59.0.0   DS1302                                                            01/08/2024 20:29:58 PAGE 5   
+
+ 240          //                              TIME[4]--;
+ 241          //                              if( (TIME[4] % 16) > 9)
+ 242          //                                      TIME[4] -= 6;
+ 243          //                              if(TIME[4] == 0x00)
+ 244          //                                      TIME[4] = 0x12;
+ 245          //                              
+ 246          //                      }                       
+ 247          //                      Ds1302Init();
+ 248          //                      break;
+ 249          //                      
+ 250          //              // 修改 周
+ 251          //              case 5:
+ 252          //                      if(sign)
+ 253          //                      {                               
+ 254          //                              TIME[5]++;
+ 255          //                              if( (TIME[5] % 16) > 9)
+ 256          //                                      TIME[5] += 6;   
+ 257          //                              if(TIME[5] > 0x07)
+ 258          //                                      TIME[5] = 0x00;                                                                 
+ 259          //                      }
+ 260          //                      else
+ 261          //                      {                               
+ 262          //                              TIME[5]--;
+ 263          //                              if( (TIME[5] % 16) > 9)
+ 264          //                                      TIME[5] -= 6;
+ 265          //                              if(TIME[5] == 0x00)
+ 266          //                                      TIME[5] = 0x07;
+ 267          //                              
+ 268          //                      }                       
+ 269          //                      Ds1302Init();
+ 270          //                      break;
+ 271          //                      
+ 272          //              // 修改 年
+ 273          //              case 6:
+ 274          //                      if(sign)
+ 275          //                      {                               
+ 276          //                              TIME[6]++;
+ 277          //                              if( (TIME[6] % 16) > 9)
+ 278          //                                      TIME[6] += 6;   
+ 279          //                              if(TIME[6] > 0x99)
+ 280          //                                      TIME[6] = 0x00;                                                                 
+ 281          //                      }
+ 282          //                      else
+ 283          //                      {                               
+ 284          //                              TIME[6]--;
+ 285          //                              if( (TIME[6] % 16) > 9)
+ 286          //                                      TIME[6] -= 6;
+ 287          //                              if(TIME[6] == 0x00)
+ 288          //                                      TIME[6] = 0x99;
+ 289          //                              
+ 290          //                      }                       
+ 291          //                      Ds1302Init();
+ 292          //                      break;
+ 293          //              default:
+ 294          //                      break;
+ 295          //      }
+ 296          //}
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    521    ----
+   CONSTANT SIZE    =      7    ----
+C51 COMPILER V9.59.0.0   DS1302                                                            01/08/2024 20:29:58 PAGE 6   
+
+   XDATA SIZE       =     14    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

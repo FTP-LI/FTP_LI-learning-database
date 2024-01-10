@@ -1,0 +1,180 @@
+C51 COMPILER V9.59.0.0   DHT11                                                             01/03/2024 21:06:24 PAGE 1   
+
+
+C51 COMPILER V9.59.0.0, COMPILATION OF MODULE DHT11
+OBJECT MODULE PLACED IN .\Objects\DHT11.obj
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE Hardware\DHT11.c LARGE OPTIMIZE(8,SPEED) BROWSE INCDIR(.\Hardware;.\Syst
+                    -em;.\User;C:\Keil_v5\C51\INC\STC) DEBUG OBJECTEXTEND PRINT(.\Listings\DHT11.lst) OBJECT(.\Objects\DHT11.obj)
+
+line level    source
+
+   1          #include "DHT11.h"
+   2          #include <STC15F2K60S2.H>
+   3          #include "Delay.h"
+   4          
+   5          sbit DHT11_data = P1^3;                         //DHT11数据口用P1.3
+   6          
+   7          uint8_t HmdHighDec,TmpHighDec,HmdLowDec,TmpLowDec;//用户变量通过extern调用
+   8          
+   9          uint8_t dht1byte;
+  10          uint8_t HmdHigh,HmdLow,TmpHigh,TmpLow;
+  11          uint8_t TmpH,TmpL,HmdH,HmdL,check,numcheck;
+  12          
+  13          void DHT11_Start(void)
+  14          {
+  15   1              DHT11_data = 1;                                                     //总线拉高，开始信号
+  16   1              delay_us(10);                                                           //稍作延时
+  17   1              DHT11_data = 0;                                                     //总线拉低
+  18   1              delay_ms(20);                                                           //总线拉低需大于18毫秒
+  19   1              DHT11_data = 1;                                                     //发送开始信号后，拉高电平20-40us
+  20   1              delay_us(32);           
+  21   1      }
+  22          
+  23          uint8_t DHT11_Byte(void)//接收1个字节
+  24          {
+  25   1              uint8_t i,temp;
+  26   1              for(i = 0;i < 8;i++)
+  27   1              {
+  28   2                      while(!DHT11_data);                                     //等待50us的低电平信号结束
+  29   2                      delay_us(32);
+  30   2                      temp = 0;
+  31   2                      if(DHT11_data == 1)     temp =1;
+  32   2                      while(DHT11_data);
+  33   2                      dht1byte <<= 1;                                             //接收的数据高位在前
+  34   2                      dht1byte |= temp;
+  35   2              }
+  36   1              return dht1byte;
+  37   1      }
+  38          
+  39          void DHT11_Receive(void)
+  40          {
+  41   1              DHT11_Start();
+  42   1              DHT11_data=1;
+  43   1              delay_us(1);
+  44   1              if(!DHT11_data)                                                     //判断是否有低电平响应信号
+  45   1              {
+  46   2                      while(!DHT11_data);                                     //等待80us低电平响应信号结束
+  47   2                      while(DHT11_data);                                      //等待80us高电平信号结束
+  48   2                      HmdH = DHT11_Byte();
+  49   2                      HmdL = DHT11_Byte();
+  50   2                      TmpH = DHT11_Byte();
+  51   2                      TmpL = DHT11_Byte();
+  52   2                      check = DHT11_Byte();
+  53   2                      DHT11_data = 0;                                             //数据接收完成，拉低总线50us
+  54   2                      delay_us(56);                                                                   
+C51 COMPILER V9.59.0.0   DHT11                                                             01/03/2024 21:06:24 PAGE 2   
+
+  55   2                      DHT11_data = 1;                                             //拉高总线，进入空闲状态
+  56   2                      numcheck = HmdH + HmdL + TmpH + TmpL;   //校验和
+  57   2                      if(numcheck == check)                           //判断检验和和校验数据是否匹配
+  58   2                      {
+  59   3                              HmdHigh = HmdH;
+  60   3                              HmdLow  = HmdL;
+  61   3                              TmpHigh = TmpH;
+  62   3                              TmpLow  = TmpL;
+  63   3                              check = numcheck;
+  64   3                      }
+  65   2              }
+  66   1      }
+  67          
+  68          void Tran_Dec(void)
+  69          {
+  70   1              uint8_t i;
+  71   1              uint16_t sum,temp;
+  72   1              sum = 0;
+  73   1              temp = 0;
+  74   1              for(i = 0;i < 8;i++)
+  75   1              {
+  76   2                      temp = HmdHigh & 0x01;
+  77   2                      switch (i)
+  78   2                      {
+  79   3                              case 7:sum += temp*128;break;
+  80   3                              case 6:sum += temp*64;break;
+  81   3                              case 5:sum += temp*32;break;
+  82   3                              case 4:sum += temp*16;break;
+  83   3                              case 3:sum += temp*8;break;
+  84   3                              case 2:sum += temp*4;break;
+  85   3                              case 1:sum += temp*2;break;
+  86   3                              case 0:sum += temp;break;
+  87   3                              default:break;
+  88   3                      }
+  89   2                      HmdHigh >>= 1;
+  90   2              }
+  91   1              HmdHighDec = sum;//湿度高八位
+  92   1              sum = 0;
+  93   1              temp = 0;
+  94   1              for(i = 0;i < 8;i++)
+  95   1              {
+  96   2                      temp = TmpHigh & 0x01;
+  97   2                      switch (i)
+  98   2                      {
+  99   3                              case 7:sum += temp*128;break;
+ 100   3                              case 6:sum += temp*64;break;
+ 101   3                              case 5:sum += temp*32;break;
+ 102   3                              case 4:sum += temp*16;break;
+ 103   3                              case 3:sum += temp*8;break;
+ 104   3                              case 2:sum += temp*4;break;
+ 105   3                              case 1:sum += temp*2;break;
+ 106   3                              case 0:sum += temp;break;
+ 107   3                              default:break;
+ 108   3                      }
+ 109   2                      TmpHigh >>= 1;
+ 110   2              }
+ 111   1              TmpHighDec = sum;//温度高八位
+ 112   1              sum = 0;
+ 113   1              temp = 0;
+ 114   1          for(i = 0;i < 8;i++)
+ 115   1              {
+ 116   2                      temp = TmpLow & 0x01;
+C51 COMPILER V9.59.0.0   DHT11                                                             01/03/2024 21:06:24 PAGE 3   
+
+ 117   2                      switch (i)
+ 118   2                      {
+ 119   3                              case 7:sum += temp*128;break;
+ 120   3                              case 6:sum += temp*64;break;
+ 121   3                              case 5:sum += temp*32;break;
+ 122   3                              case 4:sum += temp*16;break;
+ 123   3                              case 3:sum += temp*8;break;
+ 124   3                              case 2:sum += temp*4;break;
+ 125   3                              case 1:sum += temp*2;break;
+ 126   3                              case 0:sum += temp;break;
+ 127   3                              default:break;
+ 128   3                      }
+ 129   2                      TmpLow >>= 1;
+ 130   2              }
+ 131   1              TmpLowDec = sum;//温度低八位
+ 132   1              sum = 0;
+ 133   1              temp = 0;
+ 134   1          for(i = 0;i < 8;i++)
+ 135   1              {
+ 136   2                      temp = HmdLow & 0x01;
+ 137   2                      switch (i)
+ 138   2                      {
+ 139   3                              case 7:sum += temp*128;break;
+ 140   3                              case 6:sum += temp*64;break;
+ 141   3                              case 5:sum += temp*32;break;
+ 142   3                              case 4:sum += temp*16;break;
+ 143   3                              case 3:sum += temp*8;break;
+ 144   3                              case 2:sum += temp*4;break;
+ 145   3                              case 1:sum += temp*2;break;
+ 146   3                              case 0:sum += temp;break;
+ 147   3                              default:break;
+ 148   3                      }
+ 149   2                      HmdLow >>= 1;
+ 150   2              }
+ 151   1              HmdLowDec = sum;//湿度低八位
+ 152   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =   1100    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =     15       4
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

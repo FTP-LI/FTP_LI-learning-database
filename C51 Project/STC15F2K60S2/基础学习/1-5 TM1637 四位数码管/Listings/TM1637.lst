@@ -1,0 +1,156 @@
+C51 COMPILER V9.59.0.0   TM1637                                                            01/02/2024 00:06:50 PAGE 1   
+
+
+C51 COMPILER V9.59.0.0, COMPILATION OF MODULE TM1637
+OBJECT MODULE PLACED IN .\Objects\TM1637.obj
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE Hardware\TM1637.c OPTIMIZE(8,SPEED) BROWSE INCDIR(.\Hardware;.\System;.\
+                    -User) DEBUG OBJECTEXTEND PRINT(.\Listings\TM1637.lst) OBJECT(.\Objects\TM1637.obj)
+
+line level    source
+
+   1          #include <REG51.H>
+   2          #include "Delay.h"
+   3          #include "TM1637.h"
+   4          #include "intrins.h"
+   5          
+   6          sbit CLK = P1^5; //定义模拟IIC总线的时钟线
+   7          sbit DIO = P1^4; //定义模拟IIC总线的数据线
+   8            
+   9          code unsigned char tab[] =
+  10          {
+  11                  0x3F,/*0*/
+  12                  0x06,/*1*/
+  13                  0x5B,/*2*/
+  14                  0x4F,/*3*/
+  15                  0x66,/*4*/
+  16                  0x6D,/*5*/
+  17                  0x7D,/*6*/
+  18                  0x07,/*7*/
+  19                  0x7F,/*8*/
+  20                  0x6F,/*9*/
+  21                  0x77,/*10 A*/
+  22                  0x7C,/*11 b*/
+  23                  0x58,/*12 c*/
+  24                  0x5E,/*13 d*/
+  25                  0x79,/*14 E*/
+  26                  0x71,/*15 F*/
+  27                  0x76,/*16 H*/
+  28                  0x38,/*17 L*/
+  29                  0x54,/*18 n*/
+  30                  0x73,/*19 P*/
+  31                  0x3E,/*20 U*/
+  32                  0x00,/*21 黑屏*/
+  33          };
+  34           
+  35          //IIC开始
+  36          void TM1637_start(void)
+  37          {
+  38   1           CLK=1;
+  39   1           DIO=1;
+  40   1           delay_us(2);
+  41   1           DIO=0;
+  42   1      }
+  43           
+  44           
+  45          //IIC应答
+  46          void TM1637_ack(void)
+  47          {
+  48   1          unsigned char i;
+  49   1          CLK=0;
+  50   1          delay_us(5);
+  51   1           //DIO=1;   
+  52   1          while(DIO==1&&(i<250))i++;
+  53   1          CLK=1;
+  54   1          delay_us(2);
+C51 COMPILER V9.59.0.0   TM1637                                                            01/02/2024 00:06:50 PAGE 2   
+
+  55   1          CLK=0;
+  56   1      }
+  57           
+  58          //IIC停止
+  59          void TM1637_stop(void)
+  60          {
+  61   1           CLK=0;
+  62   1           delay_us(2);
+  63   1           DIO=0;
+  64   1           delay_us(2);
+  65   1           CLK=1;
+  66   1           delay_us(2);
+  67   1           DIO=1;
+  68   1           delay_us(2);
+  69   1      }
+  70           
+  71          //写数据函数
+  72          void TM1637_Write(unsigned char DATA)   
+  73          {
+  74   1          unsigned char i;   
+  75   1          for(i=0;i<8;i++)        
+  76   1          {
+  77   2              CLK=0;     
+  78   2              if(DATA & 0x01)
+  79   2                  DIO=1;
+  80   2              else DIO=0;
+  81   2               delay_us(3);
+  82   2              DATA=DATA>>1;      
+  83   2              CLK=1;
+  84   2               delay_us(3);
+  85   2          }  
+  86   1          //TM1637_ack();
+  87   1      }
+  88           
+  89           
+  90          /** 按从左到右的顺序显示, h 控制 ':'， 1显示，0不显示 */
+  91          void TM1637_display(unsigned char a,unsigned char b,unsigned char c,unsigned char d,unsigned char h)
+  92          {
+  93   1       
+  94   1          TM1637_start();
+  95   1          TM1637_Write(0x40);//写数据+自动地址加1+普通模式
+  96   1          TM1637_ack();
+  97   1          TM1637_stop();
+  98   1          TM1637_start();
+  99   1          TM1637_Write(0xc0);//设置显示首地址即第一个LED
+ 100   1          TM1637_ack();
+ 101   1       
+ 102   1          TM1637_Write(tab[a]);
+ 103   1          TM1637_ack();
+ 104   1          TM1637_Write(tab[b]|h<<7);//h为1时显示时钟中间的两点
+ 105   1          TM1637_ack();
+ 106   1          TM1637_Write(tab[c]);
+ 107   1          TM1637_ack();
+ 108   1          TM1637_Write(tab[d]);
+ 109   1          TM1637_ack();
+ 110   1       
+ 111   1          TM1637_stop();
+ 112   1          TM1637_start();
+ 113   1          TM1637_Write(0x89);//开显示，2/16亮度
+ 114   1          TM1637_ack();
+ 115   1          TM1637_stop();
+ 116   1      }
+C51 COMPILER V9.59.0.0   TM1637                                                            01/02/2024 00:06:50 PAGE 3   
+
+ 117           
+ 118          void TM1637_DisplayInt(unsigned int target)
+ 119          {
+ 120   1              unsigned char one, ten, hund, thous;
+ 121   1              
+ 122   1              thous = target / 1000;
+ 123   1              hund = target / 100 % 10;
+ 124   1              ten = target / 10 % 10;
+ 125   1              one = target % 10;
+ 126   1              
+ 127   1              TM1637_Display(thous, hund, ten, one, 0);
+ 128   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    359    ----
+   CONSTANT SIZE    =     22    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----      11
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

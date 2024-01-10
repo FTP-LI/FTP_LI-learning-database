@@ -1,0 +1,71 @@
+C51 COMPILER V9.59.0.0   PWM                                                               01/03/2024 21:24:45 PAGE 1   
+
+
+C51 COMPILER V9.59.0.0, COMPILATION OF MODULE PWM
+OBJECT MODULE PLACED IN .\Objects\PWM.obj
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE Hardware\PWM.c LARGE OPTIMIZE(8,SPEED) BROWSE INCDIR(.\Hardware;.\System
+                    -;.\User;C:\Keil_v5\C51\INC\STC) DEBUG OBJECTEXTEND PRINT(.\Listings\PWM.lst) OBJECT(.\Objects\PWM.obj)
+
+line level    source
+
+   1          #include "pwm.h"
+   2          
+   3          //本函数中仅对CCP2组进行初始化对应P3^5~7号引脚
+   4          
+   5          void PWM_Init(void)
+   6          {
+   7   1        P_SW1 &=0xCF; //切换为CCPn_2组引脚
+   8   1        P_SW1 |=0x10; //CCP0_2=P35，CCP1_2=P36, CCP2_2=P37
+   9   1        
+  10   1        CMOD=0x0E;    //PWM时钟0.375Mhz,1.46khz,关闭计数溢出中断
+  11   1        CCAPM0=0x02;  //PCA0,设置PWM模式
+  12   1        CCAPM1=0x02;  //PCA1,设置PWM模式
+  13   1        CCAPM2=0x02;  //PCA2,设置PWM模式
+  14   1        PCA_PWM0=0x00;//8位PWM模式，EPCOH=EPCOL=0
+  15   1        PCA_PWM1=0x00;//8位PWM模式，EPCOH=EPCOL=0
+  16   1        PCA_PWM2=0x00;//8位PWM模式，EPCOH=EPCOL=0
+  17   1        
+  18   1        CL=CH=0;      //PCA计数值清零
+  19   1        
+  20   1        CCAP0H=CCAP0L=128-1; //初始化占空比为50%
+  21   1        CCAP1H=CCAP1L=128-1; //初始化占空比为50%
+  22   1        CCAP2H=CCAP2L=128-1; //初始化占空比为50%
+  23   1        
+  24   1        CCON=0x40;    //开始PCA阵列，中断标志位清零 
+  25   1      }
+  26          
+  27          void Set_CCP0_2Pwm(uint8_t pwm)//P35
+  28          {
+  29   1          CCAP0H=pwm;
+  30   1      }
+  31          void Set_CCP1_2Pwm(uint8_t pwm)//P36
+  32          {
+  33   1          CCAP1H=pwm;
+  34   1      }
+  35          void Set_CCP2_2Pwm(uint8_t pwm)//P37
+  36          {
+  37   1          CCAP2H=pwm;
+  38   1      }
+  39          
+  40          void Set_CCP2Pwm(uint8_t pwm)    //设置PWM占空比
+  41          {
+  42   1          CCAP0H=pwm;
+  43   1          CCAP1H=pwm;
+  44   1          CCAP2H=pwm;
+  45   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     67    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+C51 COMPILER V9.59.0.0   PWM                                                               01/03/2024 21:24:45 PAGE 2   
+
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

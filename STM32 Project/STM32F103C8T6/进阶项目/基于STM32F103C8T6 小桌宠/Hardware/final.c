@@ -1,25 +1,27 @@
-#include "stm32f10x.h"                  // Device header
-#include "Servo.h"
-#include "NRF24L01.h"
-#include "OLED.h"
-#include "key.h"
-#include "final.h"
-#include "Delay.h"
-#include "LED.h"
-
-void Final_Init(void)
-{
-    OLED_Init();//OLED
-    Servo_Init();//舵机
-    LED_Init();//LED
-    NRF24L01_Init();//2.4G无线通信模块
-    move_chek();//运动检查
-    LED_ALL_W(0);//灯全亮
+#include "stm32f10x.h"                      // Device header
+#include "Delay.h"                          //延迟函数
+#include "final.h"                          //回调函数            
+#include "Servo.h"                          //SG90舵机
+#include "NRF24L01.h"                       //NRF24L01 2.4G无线模块
+#include "OLED.h"                           //OLED显示
+#include "key.h"                            //微动开关
+#include "LED.h"                            //LED
+    
+void Final_Init(void)//总初始化部分   
+{   
+    OLED_Init();                            //OLED
+    Servo_Init();                           //舵机
+    LED_Init();                             //LED
+    NRF24L01_Init();                        //2.4G无线通信模块（若次模块初始化失败，则OLED不会进行基础显示，请检查NRF24L01连接）
+    move_chek();                            //运动检查
+    LED_ALL_W(0);                           //灯全亮
+    OLED_ShowMyPicture(3,32,32,48,0);
+    OLED_ShowMyPicture(3,64,32,48,0);
 }
 
 void crol(void)
 {
-    uint8_t Buf[32] = {4, 20, 20, 20, 20};//其中一位数据长度，二位模式，其余四位控制数据
+    uint8_t Buf[32] = {4, 20, 20, 20, 20};  //其中一位数据长度，二位模式，其余四位控制数据
     /*
     调试标记 
     Buf[1]：左摇杆左40右0
@@ -29,9 +31,6 @@ void crol(void)
     */
     while(1)//主函数进程
     {
-        OLED_ShowMyPicture(3,32,32,48,0);
-        OLED_ShowMyPicture(3,64,32,48,0);
-//        OLED_Show_eyes_round();
         uint8_t flag=1;
         if (NRF24L01_Get_Value_Flag() == 0)
 		{
@@ -277,7 +276,7 @@ void move_shakebody(void)//摇摆函数
         Delay_ms(150);
     OLED_Clear();
 }
-void move_restop(void)
+void move_restop(void)//从准备姿态恢复到停止姿态
 {
     Delay_ms(540);
     crol_L_H(45);  
@@ -295,7 +294,7 @@ void move_restop(void)
     Delay_ms(195);
 }//多次实验发现每移动1°大约要3ms
 
-void move_stop(void)
+void move_stop(void)//停止姿态函数
 {
     crol_L_H(90);
     crol_L_L(90);
@@ -304,7 +303,7 @@ void move_stop(void)
     Delay_ms(195);
 }
 
-void move_rest(void)
+void move_rest(void)//准备姿态函数
 {
     crol_L_H(90);  
     crol_R_H(90);

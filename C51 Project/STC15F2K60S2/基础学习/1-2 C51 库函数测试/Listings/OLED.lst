@@ -1,0 +1,264 @@
+C51 COMPILER V9.59.0.0   OLED                                                              12/29/2023 20:34:27 PAGE 1   
+
+
+C51 COMPILER V9.59.0.0, COMPILATION OF MODULE OLED
+OBJECT MODULE PLACED IN .\Objects\OLED.obj
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE Hardware\OLED.c OPTIMIZE(8,SPEED) BROWSE INCDIR(.\Hardware;.\System;.\Us
+                    -er;.\PARK) DEBUG OBJECTEXTEND PRINT(.\Listings\OLED.lst) OBJECT(.\Objects\OLED.obj)
+
+line level    source
+
+   1          #include <REG51.H>
+   2          #include "OLED.h"
+   3          #include "OLED_Font.h"
+   4                          
+   5          void IIC_Start()
+   6          {
+   7   1              OLED_SCL_H() ;
+   8   1              OLED_SDA_H();
+   9   1              OLED_SDA_L();
+  10   1              OLED_SDA_L();
+  11   1      }
+  12           
+  13          void IIC_Stop()
+  14          {
+  15   1          OLED_SDA_L();
+  16   1          OLED_SCL_H() ;
+  17   1              OLED_SDA_H();
+  18   1      }
+  19          
+  20          void IIC_Wait_Ack()//∂ÓÕ‚“ª∏ˆ ±÷”£¨≤ª¥¶¿Ì”¶¥–≈∫≈
+  21          {
+  22   1              OLED_SCL_H() ;
+  23   1              OLED_SCL_L();
+  24   1      }
+  25          
+  26          void Write_IIC_Byte(uint8_t IIC_Byte)
+  27          {
+  28   1              unsigned char i;
+  29   1              unsigned char send,adata;
+  30   1              adata=IIC_Byte;
+  31   1              OLED_SCL_L();
+  32   1              for(i=0;i<8;i++)                
+  33   1              {
+  34   2              send=adata;
+  35   2                      send=send&0x80;
+  36   2                      if(send==0x80)
+  37   2                      {
+  38   3                  OLED_SDA_H();
+  39   3              }
+  40   2                      else
+  41   2              {            
+  42   3                  OLED_SDA_L();
+  43   3              }
+  44   2                      adata=adata<<1;
+  45   2                      OLED_SCL_H();
+  46   2                      OLED_SCL_L();
+  47   2              }
+  48   1      }
+  49          
+  50          void OLED_WriteCommand(uint8_t Command)
+  51          {
+  52   1          IIC_Start();
+  53   1          Write_IIC_Byte(0x78);//µÿ÷∑
+  54   1          IIC_Wait_Ack();
+C51 COMPILER V9.59.0.0   OLED                                                              12/29/2023 20:34:27 PAGE 2   
+
+  55   1          Write_IIC_Byte(0x00);//÷∏¡Ó
+  56   1          IIC_Wait_Ack();    
+  57   1          Write_IIC_Byte(Command); 
+  58   1          IIC_Wait_Ack();
+  59   1          IIC_Stop();
+  60   1      }
+  61          
+  62          void OLED_WriteData(uint8_t Data)
+  63          {
+  64   1          IIC_Start();
+  65   1          Write_IIC_Byte(0x78);//µÿ÷∑
+  66   1          IIC_Wait_Ack();    
+  67   1          Write_IIC_Byte(0x40);// ˝æ›                 
+  68   1          IIC_Wait_Ack();
+  69   1          Write_IIC_Byte(Data);
+  70   1          IIC_Wait_Ack();
+  71   1          IIC_Stop();
+  72   1      }
+  73          
+  74          void OLED_SetCursor(uint8_t Y, uint8_t X)//OLED…Ë÷√π‚±ÍŒª÷√ 
+  75          {       
+  76   1          OLED_WriteCommand(0xB0 | Y);                                        //…Ë÷√YŒª÷√
+  77   1              OLED_WriteCommand(0x10 | ((X & 0xF0) >> 4));    //…Ë÷√XŒª÷√∏ﬂ4Œª
+  78   1              OLED_WriteCommand(0x00 | (X & 0x0F));   
+  79   1      }         
+  80                     
+  81          void OLED_Clear(void)  
+  82          {  
+  83   1              uint8_t i, j;
+  84   1              for (j = 0; j < 8; j++)
+  85   1              {
+  86   2                      OLED_SetCursor(j, 0);
+  87   2                      for(i = 0; i < 128; i++)
+  88   2                      {
+  89   3                              OLED_WriteData(0x00);
+  90   3                      }
+  91   2              }
+  92   1      }
+  93          
+  94          void OLED_ShowChar(uint8_t Line, uint8_t Column, char Char)//œ‘ æ“ª∏ˆ◊÷∑˚
+  95          {       
+  96   1              uint8_t i;
+  97   1              OLED_SetCursor((Line - 1) * 2, (Column - 1) * 8);               //…Ë÷√π‚±ÍŒª÷√‘⁄…œ∞Î≤ø∑÷
+  98   1              for (i = 0; i < 8; i++)
+  99   1              {
+ 100   2                      OLED_WriteData(OLED_F8x16[Char - ' '][i]);                      //œ‘ æ…œ∞Î≤ø∑÷ƒ⁄»›
+ 101   2              }
+ 102   1              OLED_SetCursor((Line - 1) * 2 + 1, (Column - 1) * 8);   //…Ë÷√π‚±ÍŒª÷√‘⁄œ¬∞Î≤ø∑÷
+ 103   1              for (i = 0; i < 8; i++)
+ 104   1              {
+ 105   2                      OLED_WriteData(OLED_F8x16[Char - ' '][i + 8]);          //œ‘ æœ¬∞Î≤ø∑÷ƒ⁄»›
+ 106   2              }
+ 107   1      }
+ 108          
+ 109          void OLED_ShowString(uint8_t Line, uint8_t Column, char *String)//œ‘ æ◊÷∑˚¥Æ
+ 110          {
+ 111   1              uint8_t i;
+ 112   1              for (i = 0; String[i] != '\0'; i++)
+ 113   1              {
+ 114   2                      OLED_ShowChar(Line, Column + i, String[i]);
+ 115   2              }
+ 116   1      }
+C51 COMPILER V9.59.0.0   OLED                                                              12/29/2023 20:34:27 PAGE 3   
+
+ 117          
+ 118          uint32_t OLED_Pow(uint32_t X, uint32_t Y)//OLED¥Œ∑Ω∫Ø ˝
+ 119          {
+ 120   1              uint32_t Result = 1;
+ 121   1              while (Y--)
+ 122   1              {
+ 123   2                      Result *= X;
+ 124   2              }
+ 125   1              return Result;
+ 126   1      }
+ 127          
+ 128          
+ 129          void OLED_ShowNum(uint8_t Line, uint8_t Column, uint32_t Number, uint8_t Length)//OLEDœ‘ æ ˝◊÷£® ÆΩ¯÷∆£¨’˝
+             - ˝£©
+ 130          {
+ 131   1              uint8_t i;
+ 132   1              for (i = 0; i < Length; i++)                                                    
+ 133   1              {
+ 134   2                      OLED_ShowChar(Line, Column + i, Number / OLED_Pow(10, Length - i - 1) % 10 + '0');
+ 135   2              }
+ 136   1      }
+ 137          
+ 138          void OLED_ShowSignedNum(uint8_t Line, uint8_t Column, uint32_t Number, uint8_t Length)//OLEDœ‘ æ ˝◊÷£® ÆΩ¯
+             -÷∆£¨¥¯∑˚∫≈ ˝£©
+ 139          {
+ 140   1              uint8_t i;
+ 141   1              uint32_t Number1;
+ 142   1              if (Number >= 0)
+ 143   1              {
+ 144   2                      OLED_ShowChar(Line, Column, '+');
+ 145   2                      Number1 = Number;
+ 146   2              }
+ 147   1              else
+ 148   1              {
+ 149   2                      OLED_ShowChar(Line, Column, '-');
+ 150   2                      Number1 = -Number;
+ 151   2              }
+ 152   1              for (i = 0; i < Length; i++)                                                    
+ 153   1              {
+ 154   2                      OLED_ShowChar(Line, Column + i + 1, Number1 / OLED_Pow(10, Length - i - 1) % 10 + '0');
+ 155   2              }
+ 156   1      }
+ 157          
+ 158          void OLED_ShowHexNum(uint8_t Line, uint8_t Column, uint32_t Number, uint8_t Length)//OLEDœ‘ æ ˝◊÷£® Æ¡˘Ω¯÷
+             -∆£¨’˝ ˝£©
+ 159          {
+ 160   1              uint8_t i, SingleNumber;
+ 161   1              for (i = 0; i < Length; i++)                                                    
+ 162   1              {
+ 163   2                      SingleNumber = Number / OLED_Pow(16, Length - i - 1) % 16;
+ 164   2                      if (SingleNumber < 10)
+ 165   2                      {
+ 166   3                              OLED_ShowChar(Line, Column + i, SingleNumber + '0');
+ 167   3                      }
+ 168   2                      else
+ 169   2                      {
+ 170   3                              OLED_ShowChar(Line, Column + i, SingleNumber - 10 + 'A');
+ 171   3                      }
+ 172   2              }
+ 173   1      }
+ 174          
+ 175          void OLED_ShowBinNum(uint8_t Line, uint8_t Column, uint32_t Number, uint8_t Length)//OLEDœ‘ æ ˝◊÷£®∂˛Ω¯÷∆£
+C51 COMPILER V9.59.0.0   OLED                                                              12/29/2023 20:34:27 PAGE 4   
+
+             -¨’˝ ˝£©
+ 176          {
+ 177   1              uint8_t i;
+ 178   1              for (i = 0; i < Length; i++)                                                    
+ 179   1              {
+ 180   2                      OLED_ShowChar(Line, Column + i, Number / OLED_Pow(2, Length - i - 1) % 2 + '0');
+ 181   2              }
+ 182   1      }
+ 183           
+ 184          void OLED_Init(void)
+ 185          {       
+ 186   1          uint32_t i, j;
+ 187   1              for (i = 0; i < 1000; i++)                      //…œµÁ—” ±
+ 188   1              {
+ 189   2                      for (j = 0; j < 1000; j++);
+ 190   2              }
+ 191   1              OLED_WriteCommand(0xAE);        //πÿ±’œ‘ æ
+ 192   1          OLED_WriteCommand(0x00);
+ 193   1          OLED_WriteCommand(0x10);
+ 194   1          OLED_WriteCommand(0x40);    //…Ë÷√œ‘ æø™ º––
+ 195   1          OLED_WriteCommand(0xB0);
+ 196   1          OLED_WriteCommand(0x81);    //…Ë÷√∂‘±»∂»øÿ÷∆
+ 197   1          OLED_WriteCommand(0xFF);    
+ 198   1          OLED_WriteCommand(0xA1);    //…Ë÷√◊Û”“∑ΩœÚ£¨0xA1’˝≥£ 0xA0◊Û”“∑¥÷√
+ 199   1          OLED_WriteCommand(0xA6);
+ 200   1          OLED_WriteCommand(0xA8);
+ 201   1          OLED_WriteCommand(0x3F);
+ 202   1          OLED_WriteCommand(0xC8);    //…Ë÷√…œœ¬∑ΩœÚ£¨0xC8’˝≥£ 0xC0…œœ¬∑¥÷√
+ 203   1          OLED_WriteCommand(0xD3);
+ 204   1          OLED_WriteCommand(0x00);
+ 205   1          
+ 206   1          OLED_WriteCommand(0xD5);
+ 207   1          OLED_WriteCommand(0x80);
+ 208   1          
+ 209   1          OLED_WriteCommand(0xD8);
+ 210   1          OLED_WriteCommand(0x05);
+ 211   1          
+ 212   1              OLED_WriteCommand(0xD9);        //…Ë÷√‘§≥‰µÁ÷‹∆⁄
+ 213   1              OLED_WriteCommand(0xF1);
+ 214   1      
+ 215   1              OLED_WriteCommand(0xDA);        //…Ë÷√’˚∏ˆœ‘ æ¥Úø™/πÿ±’
+ 216   1          OLED_WriteCommand(0x12);
+ 217   1          
+ 218   1          OLED_WriteCommand(0xDB);    //…Ë÷√COM“˝Ω≈”≤º˛≈‰÷√
+ 219   1          OLED_WriteCommand(0x30);
+ 220   1      
+ 221   1              OLED_WriteCommand(0x8D);        //…Ë÷√≥‰µÁ±√
+ 222   1              OLED_WriteCommand(0x14);
+ 223   1      
+ 224   1              OLED_WriteCommand(0xAF);        //ø™∆Ùœ‘ æ
+ 225   1                      
+ 226   1              OLED_Clear();                           //OLED«Â∆¡
+ 227   1      }  
+ 228           
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    917    ----
+   CONSTANT SIZE    =   1520    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----      36
+C51 COMPILER V9.59.0.0   OLED                                                              12/29/2023 20:34:27 PAGE 5   
+
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)
