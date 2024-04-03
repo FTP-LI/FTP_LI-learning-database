@@ -15,10 +15,10 @@ void Key_Init(void)
 uint8_t Key_GetNum(void)
 {
 	uint8_t KeyNum = 0;
-	if(GPIO_ReadInputDataBit(GPIOB,GPIO_Pin_13)==0)
+	if(GPIO_ReadInputDataBit(GPIOB,GPIO_Pin_4)==0)
 	{
 		Delay_ms(20);//消抖
-		while(GPIO_ReadInputDataBit(GPIOB,GPIO_Pin_13)==0);
+		while(GPIO_ReadInputDataBit(GPIOB,GPIO_Pin_4)==0);
 		Delay_ms(20);//消抖
 		KeyNum=1;//按键赋值为按键一
 	}//左键

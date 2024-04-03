@@ -1,0 +1,7 @@
+vendor_name = ModelSim
+source_file = 1, C:/Users/ATLAS/Documents/GitHub/FTP_LI-learning-database/Quartus/Project/sim/tb_led.v
+source_file = 1, C:/Users/ATLAS/Documents/GitHub/FTP_LI-learning-database/Quartus/Project/rtl/Project.v
+source_file = 1, C:/Users/ATLAS/Documents/GitHub/FTP_LI-learning-database/Quartus/Project/par/db/Project.cbx.xml
+design_name = Project
+instance = comp, \led_out~output , led_out~output, Project, 1
+instance = comp, \key_in~input , key_in~input, Project, 1

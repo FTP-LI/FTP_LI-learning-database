@@ -7,12 +7,12 @@ int main(void)
     Control_Init();
     while (1) 
     {
-        if(AD_Value[0] > 3000)
+        if(AD_Value[3] > 3000)
         {
             Delay_ms(300);
             CountL++;
         }
-        if(AD_Value[0] < 1000)
+        if(AD_Value[3] < 1000)
         {
             Delay_ms(300);
             CountL++;

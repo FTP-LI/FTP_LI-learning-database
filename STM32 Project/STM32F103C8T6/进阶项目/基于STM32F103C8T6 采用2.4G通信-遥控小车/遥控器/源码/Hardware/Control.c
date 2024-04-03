@@ -9,14 +9,6 @@ void Control_Init(void)
     AD_Init();
     MPU6050_Init();
     OLED_ShowPicture(1,1,128,64);
-    OLED_ShowChineseString(2,7,0,0);
-    Delay_ms(500);
-    OLED_ShowChineseString(3,7,1,1);
-    Delay_ms(500);
-    OLED_ShowChineseString(4,7,2,2);
-    Delay_ms(2500);
-    OLED_ShowChineseString(2,8,3,3);
-    OLED_ShowChineseString(3,8,4,4);
     Delay_ms(1000);
 	OLED_Clear();
     OLED_Base();//显示基础界面
@@ -27,15 +19,15 @@ uint8_t Yao_Gan_Control(void)
 {
     uint8_t nun = 0;
     uint8_t Buf[32] = {4, 20, 20, 20, 20};;
-    Buf[2] = AD_Value[0]/100;//LY
-    Buf[1] = 40-AD_Value[1]/100;//LX
-    Buf[4] = AD_Value[2]/100;//RX
-    Buf[3] = AD_Value[3]/100;//RY
+    Buf[2] = (AD_Value[3]/100);//LY 
+    Buf[1] = (AD_Value[2]/100);//LX 
+    Buf[4] = (40-AD_Value[1]/100);//RX
+    Buf[3] = (AD_Value[0]/100);//RY
 	NRF24L01_SendBuf(Buf);//基础数据及其发送
-    OLED_ShowNum(2,5,Buf[1],2);
-    OLED_ShowNum(2,13,Buf[2],2);
-    OLED_ShowNum(3,13,Buf[4],2);
-    OLED_ShowNum(3,5,Buf[3],2);
+    OLED_ShowNum(2,5,Buf[1],2);//左X
+    OLED_ShowNum(2,13,Buf[2],2);//左Y
+    OLED_ShowNum(3,5,Buf[3],2);//右X
+    OLED_ShowNum(3,13,Buf[4],2);//右Y
     if(Key_GetNum() == 1)
         {
             nun=1;
