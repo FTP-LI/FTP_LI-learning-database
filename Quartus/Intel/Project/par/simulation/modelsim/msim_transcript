@@ -26,7 +26,7 @@
 # Modifying modelsim.ini
 # vlog -vlog01compat -work altera_ver {d:/fpga/quart ii/quartus/eda/sim_lib/altera_primitives.v}
 # Model Technology ModelSim SE-64 vlog 10.5 Compiler 2016.02 Feb 13 2016
-# Start time: 20:53:23 on Mar 22,2024
+# Start time: 21:33:24 on Apr 15,2024
 # vlog -reportprogress 300 -vlog01compat -work altera_ver d:/fpga/quart ii/quartus/eda/sim_lib/altera_primitives.v 
 # -- Compiling module global
 # -- Compiling module carry
@@ -104,7 +104,7 @@
 # 	alt_iobuf_diff
 # 	alt_bidir_diff
 # 	alt_bidir_buf
-# End time: 20:53:23 on Mar 22,2024, Elapsed time: 0:00:00
+# End time: 21:33:24 on Apr 15,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # 
 # vlib verilog_libs/lpm_ver
@@ -115,7 +115,7 @@
 # Modifying modelsim.ini
 # vlog -vlog01compat -work lpm_ver {d:/fpga/quart ii/quartus/eda/sim_lib/220model.v}
 # Model Technology ModelSim SE-64 vlog 10.5 Compiler 2016.02 Feb 13 2016
-# Start time: 20:53:25 on Mar 22,2024
+# Start time: 21:33:24 on Apr 15,2024
 # vlog -reportprogress 300 -vlog01compat -work lpm_ver d:/fpga/quart ii/quartus/eda/sim_lib/220model.v 
 # -- Compiling module LPM_MEMORY_INITIALIZATION
 # -- Compiling module LPM_HINT_EVALUATION
@@ -179,7 +179,7 @@
 # 	lpm_inpad
 # 	lpm_outpad
 # 	lpm_bipad
-# End time: 20:53:25 on Mar 22,2024, Elapsed time: 0:00:00
+# End time: 21:33:24 on Apr 15,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # 
 # vlib verilog_libs/sgate_ver
@@ -190,7 +190,7 @@
 # Modifying modelsim.ini
 # vlog -vlog01compat -work sgate_ver {d:/fpga/quart ii/quartus/eda/sim_lib/sgate.v}
 # Model Technology ModelSim SE-64 vlog 10.5 Compiler 2016.02 Feb 13 2016
-# Start time: 20:53:26 on Mar 22,2024
+# Start time: 21:33:25 on Apr 15,2024
 # vlog -reportprogress 300 -vlog01compat -work sgate_ver d:/fpga/quart ii/quartus/eda/sim_lib/sgate.v 
 # -- Compiling module oper_add
 # -- Compiling module oper_addsub
@@ -232,7 +232,7 @@
 # 	oper_decoder
 # 	oper_bus_mux
 # 	oper_latch
-# End time: 20:53:26 on Mar 22,2024, Elapsed time: 0:00:00
+# End time: 21:33:25 on Apr 15,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # 
 # vlib verilog_libs/altera_mf_ver
@@ -243,7 +243,7 @@
 # Modifying modelsim.ini
 # vlog -vlog01compat -work altera_mf_ver {d:/fpga/quart ii/quartus/eda/sim_lib/altera_mf.v}
 # Model Technology ModelSim SE-64 vlog 10.5 Compiler 2016.02 Feb 13 2016
-# Start time: 20:53:26 on Mar 22,2024
+# Start time: 21:33:25 on Apr 15,2024
 # vlog -reportprogress 300 -vlog01compat -work altera_mf_ver d:/fpga/quart ii/quartus/eda/sim_lib/altera_mf.v 
 # -- Compiling module lcell
 # -- Compiling module ALTERA_MF_MEMORY_INITIALIZATION
@@ -368,7 +368,7 @@
 # 	altserial_flash_loader
 # 	sld_virtual_jtag_basic
 # 	altsource_probe
-# End time: 20:53:27 on Mar 22,2024, Elapsed time: 0:00:01
+# End time: 21:33:26 on Apr 15,2024, Elapsed time: 0:00:01
 # Errors: 0, Warnings: 0
 # 
 # vlib verilog_libs/altera_lnsim_ver
@@ -379,7 +379,7 @@
 # Modifying modelsim.ini
 # vlog -sv -work altera_lnsim_ver {d:/fpga/quart ii/quartus/eda/sim_lib/altera_lnsim.sv}
 # Model Technology ModelSim SE-64 vlog 10.5 Compiler 2016.02 Feb 13 2016
-# Start time: 20:53:29 on Mar 22,2024
+# Start time: 21:33:26 on Apr 15,2024
 # vlog -reportprogress 300 -sv -work altera_lnsim_ver d:/fpga/quart ii/quartus/eda/sim_lib/altera_lnsim.sv 
 # -- Compiling package altera_lnsim_functions
 # -- Compiling module altera_pll
@@ -437,7 +437,7 @@
 # 	generic_device_pll
 # 	altera_mult_add
 # 	altera_pll_reconfig_tasks
-# End time: 20:53:29 on Mar 22,2024, Elapsed time: 0:00:00
+# End time: 21:33:26 on Apr 15,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # 
 # vlib verilog_libs/cycloneive_ver
@@ -448,7 +448,7 @@
 # Modifying modelsim.ini
 # vlog -vlog01compat -work cycloneive_ver {d:/fpga/quart ii/quartus/eda/sim_lib/cycloneive_atoms.v}
 # Model Technology ModelSim SE-64 vlog 10.5 Compiler 2016.02 Feb 13 2016
-# Start time: 20:53:29 on Mar 22,2024
+# Start time: 21:33:27 on Apr 15,2024
 # vlog -reportprogress 300 -vlog01compat -work cycloneive_ver d:/fpga/quart ii/quartus/eda/sim_lib/cycloneive_atoms.v 
 # -- Compiling UDP CYCLONEIVE_PRIM_DFFE
 # -- Compiling UDP CYCLONEIVE_PRIM_DFFEAS
@@ -524,7 +524,7 @@
 # 	cycloneive_jtag
 # 	cycloneive_crcblock
 # 	cycloneive_oscillator
-# End time: 20:53:30 on Mar 22,2024, Elapsed time: 0:00:01
+# End time: 21:33:27 on Apr 15,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # 
 # if {[file exists rtl_work]} {
@@ -536,41 +536,39 @@
 # vmap work rtl_work 
 # Modifying modelsim.ini
 # 
-# vlog -vlog01compat -work work +incdir+C:/Users/ATLAS/Documents/GitHub/FTP_LI-learning-database/Quartus/Project/rtl {C:/Users/ATLAS/Documents/GitHub/FTP_LI-learning-database/Quartus/Project/rtl/Project.v}
+# vlog -vlog01compat -work work +incdir+C:/Users/ATLAS/Documents/GitHub/FTP_LI-learning-database/Quartus/Intel/Project/rtl {C:/Users/ATLAS/Documents/GitHub/FTP_LI-learning-database/Quartus/Intel/Project/rtl/Project.v}
 # Model Technology ModelSim SE-64 vlog 10.5 Compiler 2016.02 Feb 13 2016
-# Start time: 20:53:30 on Mar 22,2024
-# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/ATLAS/Documents/GitHub/FTP_LI-learning-database/Quartus/Project/rtl" C:/Users/ATLAS/Documents/GitHub/FTP_LI-learning-database/Quartus/Project/rtl/Project.v 
+# Start time: 21:33:27 on Apr 15,2024
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/ATLAS/Documents/GitHub/FTP_LI-learning-database/Quartus/Intel/Project/rtl" C:/Users/ATLAS/Documents/GitHub/FTP_LI-learning-database/Quartus/Intel/Project/rtl/Project.v 
 # -- Compiling module Project
+# ** Warning: C:/Users/ATLAS/Documents/GitHub/FTP_LI-learning-database/Quartus/Intel/Project/rtl/Project.v(15): (vlog-2600) [RDGN] - Redundant digits in numeric literal.
 # 
 # Top level modules:
 # 	Project
-# End time: 20:53:30 on Mar 22,2024, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
+# End time: 21:33:27 on Apr 15,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 1
 # 
-# vlog -vlog01compat -work work +incdir+C:/Users/ATLAS/Documents/GitHub/FTP_LI-learning-database/Quartus/Project/par/../sim {C:/Users/ATLAS/Documents/GitHub/FTP_LI-learning-database/Quartus/Project/par/../sim/tb_led.v}
+# vlog -vlog01compat -work work +incdir+C:/Users/ATLAS/Documents/GitHub/FTP_LI-learning-database/Quartus/Intel/Project/par/../sim {C:/Users/ATLAS/Documents/GitHub/FTP_LI-learning-database/Quartus/Intel/Project/par/../sim/tb_led.v}
 # Model Technology ModelSim SE-64 vlog 10.5 Compiler 2016.02 Feb 13 2016
-# Start time: 20:53:30 on Mar 22,2024
-# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/ATLAS/Documents/GitHub/FTP_LI-learning-database/Quartus/Project/par/../sim" C:/Users/ATLAS/Documents/GitHub/FTP_LI-learning-database/Quartus/Project/par/../sim/tb_led.v 
+# Start time: 21:33:27 on Apr 15,2024
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/ATLAS/Documents/GitHub/FTP_LI-learning-database/Quartus/Intel/Project/par/../sim" C:/Users/ATLAS/Documents/GitHub/FTP_LI-learning-database/Quartus/Intel/Project/par/../sim/tb_led.v 
 # -- Compiling module tb_led
 # 
 # Top level modules:
 # 	tb_led
-# End time: 20:53:30 on Mar 22,2024, Elapsed time: 0:00:00
+# End time: 21:33:28 on Apr 15,2024, Elapsed time: 0:00:01
 # Errors: 0, Warnings: 0
 # 
 # vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cycloneive_ver -L rtl_work -L work -voptargs="+acc"  tb_led
 # vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cycloneive_ver -L rtl_work -L work -voptargs=""+acc"" tb_led 
-# Start time: 20:53:31 on Mar 22,2024
+# Start time: 21:33:28 on Apr 15,2024
 # ** Note: (vsim-3812) Design is being optimized...
-# Loading work.tb_led(fast)
-# Loading work.Project(fast)
-# 
-# add wave *
-# 
-# view structure
-# .main_pane.structure.interior.cs.body.struct
-# view signals
-# .main_pane.objects.interior.cs.body.tree
-# run 1 ms
-# End time: 20:54:21 on Mar 22,2024, Elapsed time: 0:00:50
-# Errors: 0, Warnings: 0
+# ** Error: C:/Users/ATLAS/Documents/GitHub/FTP_LI-learning-database/Quartus/Intel/Project/par/../sim/tb_led.v(45): (vopt-2912) Port 'key_in' not found in module 'Project' (1st connection).
+# ** Error: C:/Users/ATLAS/Documents/GitHub/FTP_LI-learning-database/Quartus/Intel/Project/par/../sim/tb_led.v(45): (vopt-2912) Port 'led_out' not found in module 'Project' (2nd connection).
+# Optimization failed
+# Error loading design
+# Error: Error loading design
+#        Pausing macro execution
+# MACRO ./Project_run_msim_rtl_verilog.do PAUSED at line 40
+# End time: 21:34:39 on Apr 15,2024, Elapsed time: 0:01:11
+# Errors: 2, Warnings: 0

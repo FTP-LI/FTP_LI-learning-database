@@ -1,0 +1,34 @@
+module led(
+				input clk,
+				input rstn,
+				output reg[3:0]led
+				);
+
+	parameter T1s = 26'd49_999_999;
+	
+	reg[25:0]cnt_1s;
+	
+	
+	always@(posedge clk or negedge rstn)
+		if(!rstn)begin
+			cnt_1s <= 0;
+		end
+		else if(cnt_1s == T1s)begin
+			cnt_1s <= 0;
+		end
+		else begin
+			cnt_1s <= cnt_1s + 1'b1;
+		end
+		
+	always@(posedge clk or negedge rstn)
+		if(!rstn)begin
+			led <= 4'hf;
+		end
+		else if(led == 4'hf)begin
+			led <= 4'he;
+		end
+		else if(cnt_1s == T1s)begin
+			led <= {led[2:0],1'b1};
+		end
+		
+endmodule

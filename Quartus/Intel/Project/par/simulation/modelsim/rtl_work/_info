@@ -7,58 +7,49 @@ z2
 !i10e 25
 !i10f 100
 cModel Technology
-Z0 dC:/Users/ATLAS/Documents/GitHub/FTP_LI-learning-database/Quartus/Project/par/simulation/modelsim
-T_opt
-!s110 1711112012
-V?8WL3Cf?4MS<83zboR`=a0
-04 6 4 work tb_led fast 0
-=1-9c2dcd7c12d8-65fd7f4b-292-782c
-o-quiet -auto_acc_if_foreign -work work -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cycloneive_ver -L rtl_work -L work +acc
-Z1 tCvgOpt 0
-n@_opt
-OL;O;10.5;63
+Z0 dC:/Users/ATLAS/Documents/GitHub/FTP_LI-learning-database/Quartus/Intel/Project/par/simulation/modelsim
 vProject
-Z2 !s110 1711112010
+!s110 1713188007
 !i10b 1
-!s100 >b6QNV3ziASJK931APBlR1
-IV;`XT?XLEW?_dka_U=FO31
-Z3 VDg1SIo80bB@j0V0VzS_@n1
+!s100 k?E@VE1]Yk2[D=en<C@X92
+IB64[z_JUI0fVCdonNA7k70
+Z1 VDg1SIo80bB@j0V0VzS_@n1
 R0
-w1711021953
-8C:/Users/ATLAS/Documents/GitHub/FTP_LI-learning-database/Quartus/Project/rtl/Project.v
-FC:/Users/ATLAS/Documents/GitHub/FTP_LI-learning-database/Quartus/Project/rtl/Project.v
+w1713187886
+8C:/Users/ATLAS/Documents/GitHub/FTP_LI-learning-database/Quartus/Intel/Project/rtl/Project.v
+FC:/Users/ATLAS/Documents/GitHub/FTP_LI-learning-database/Quartus/Intel/Project/rtl/Project.v
 L0 1
-Z4 OL;L;10.5;63
+Z2 OL;L;10.5;63
 r1
 !s85 0
 31
-Z5 !s108 1711112010.000000
-!s107 C:/Users/ATLAS/Documents/GitHub/FTP_LI-learning-database/Quartus/Project/rtl/Project.v|
-!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/ATLAS/Documents/GitHub/FTP_LI-learning-database/Quartus/Project/rtl|C:/Users/ATLAS/Documents/GitHub/FTP_LI-learning-database/Quartus/Project/rtl/Project.v|
+Z3 !s108 1713188007.000000
+!s107 C:/Users/ATLAS/Documents/GitHub/FTP_LI-learning-database/Quartus/Intel/Project/rtl/Project.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/ATLAS/Documents/GitHub/FTP_LI-learning-database/Quartus/Intel/Project/rtl|C:/Users/ATLAS/Documents/GitHub/FTP_LI-learning-database/Quartus/Intel/Project/rtl/Project.v|
 !i113 0
-Z6 o-vlog01compat -work work -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
-!s92 -vlog01compat -work work +incdir+C:/Users/ATLAS/Documents/GitHub/FTP_LI-learning-database/Quartus/Project/rtl -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
-R1
+Z4 o-vlog01compat -work work -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+!s92 -vlog01compat -work work +incdir+C:/Users/ATLAS/Documents/GitHub/FTP_LI-learning-database/Quartus/Intel/Project/rtl -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+Z5 tCvgOpt 0
 n@project
 vtb_led
-R2
+!s110 1713188008
 !i10b 1
 !s100 89>RE01L_WSIOVZ1od6TZ2
-IYM8h0Z38=FXf]?WaBo<9^1
-R3
+I[J>ILbm?2IW]S=zj_hMEV3
+R1
 R0
 w1711022374
-8C:/Users/ATLAS/Documents/GitHub/FTP_LI-learning-database/Quartus/Project/par/../sim/tb_led.v
-FC:/Users/ATLAS/Documents/GitHub/FTP_LI-learning-database/Quartus/Project/par/../sim/tb_led.v
+8C:/Users/ATLAS/Documents/GitHub/FTP_LI-learning-database/Quartus/Intel/Project/par/../sim/tb_led.v
+FC:/Users/ATLAS/Documents/GitHub/FTP_LI-learning-database/Quartus/Intel/Project/par/../sim/tb_led.v
 L0 20
-R4
+R2
 r1
 !s85 0
 31
-R5
-!s107 C:/Users/ATLAS/Documents/GitHub/FTP_LI-learning-database/Quartus/Project/par/../sim/tb_led.v|
-!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/ATLAS/Documents/GitHub/FTP_LI-learning-database/Quartus/Project/par/../sim|C:/Users/ATLAS/Documents/GitHub/FTP_LI-learning-database/Quartus/Project/par/../sim/tb_led.v|
+R3
+!s107 C:/Users/ATLAS/Documents/GitHub/FTP_LI-learning-database/Quartus/Intel/Project/par/../sim/tb_led.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/ATLAS/Documents/GitHub/FTP_LI-learning-database/Quartus/Intel/Project/par/../sim|C:/Users/ATLAS/Documents/GitHub/FTP_LI-learning-database/Quartus/Intel/Project/par/../sim/tb_led.v|
 !i113 0
-R6
-!s92 -vlog01compat -work work +incdir+C:/Users/ATLAS/Documents/GitHub/FTP_LI-learning-database/Quartus/Project/par/../sim -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
-R1
+R4
+!s92 -vlog01compat -work work +incdir+C:/Users/ATLAS/Documents/GitHub/FTP_LI-learning-database/Quartus/Intel/Project/par/../sim -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+R5

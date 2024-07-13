@@ -7,17 +7,17 @@ z2
 !i10e 25
 !i10f 100
 cModel Technology
-Z0 dC:/Users/ATLAS/Documents/GitHub/FTP_LI-learning-database/Quartus/Project/par/simulation/modelsim
+dC:/Users/ATLAS/Documents/GitHub/FTP_LI-learning-database/Quartus/Project/par/simulation/modelsim
 valtera_arriav_pll
-Z1 DXx6 sv_std 3 std 0 22 AD7iAPLo6nTIKk<N0eo=D3
-Z2 !s110 1711112009
+Z0 DXx6 sv_std 3 std 0 22 AD7iAPLo6nTIKk<N0eo=D3
+Z1 !s110 1713188006
 !i10b 1
 !s100 [Yk[z106dfBRQO<E@BWIe0
 I:>;9AcWll`;k>T1VGAjJ80
-Z3 VDg1SIo80bB@j0V0VzS_@n1
-Z4 !s105 altera_lnsim_sv_unit
+Z2 VDg1SIo80bB@j0V0VzS_@n1
+Z3 !s105 altera_lnsim_sv_unit
 S1
-R0
+Z4 dC:/Users/ATLAS/Documents/GitHub/FTP_LI-learning-database/Quartus/Intel/Project/par/simulation/modelsim
 Z5 w1371091750
 Z6 8d:/fpga/quart ii/quartus/eda/sim_lib/altera_lnsim.sv
 Z7 Fd:/fpga/quart ii/quartus/eda/sim_lib/altera_lnsim.sv
@@ -26,22 +26,22 @@ Z8 OL;L;10.5;63
 r1
 !s85 0
 31
-Z9 !s108 1711112009.000000
+Z9 !s108 1713188006.000000
 Z10 !s107 d:/fpga/quart ii/quartus/eda/sim_lib/altera_lnsim.sv|
 Z11 !s90 -reportprogress|300|-sv|-work|altera_lnsim_ver|d:/fpga/quart ii/quartus/eda/sim_lib/altera_lnsim.sv|
 !i113 0
 Z12 o-sv -work altera_lnsim_ver -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
 Z13 tCvgOpt 0
 valtera_arriavgz_pll
+R0
 R1
-R2
 !i10b 1
 !s100 47TmhL<Sk6m69R=mM3GTd3
 I1Y?RE=_CBX?NA`hUzkbgZ3
+R2
 R3
-R4
 S1
-R0
+R4
 R5
 R6
 R7
@@ -57,15 +57,15 @@ R11
 R12
 R13
 valtera_cyclonev_pll
+R0
 R1
-R2
 !i10b 1
 !s100 OH9]oo_>iFQXz[n@nC];?0
 I22<?G2?e14iEg8`o][Rn:0
+R2
 R3
-R4
 S1
-R0
+R4
 R5
 R6
 R7
@@ -81,14 +81,14 @@ R11
 R12
 R13
 Xaltera_generic_pll_functions
+R0
 R1
-R2
 !i10b 1
 !s100 9ZGD[ho9o]3?ICh;mR6592
 IBfUZe15YBFa]>M6F42cD73
 VBfUZe15YBFa]>M6F42cD73
 S1
-R0
+R4
 R5
 R6
 R7
@@ -104,14 +104,14 @@ R11
 R12
 R13
 Xaltera_lnsim_functions
+R0
 R1
-R2
 !i10b 1
 !s100 3CCCi6V19XoKChdC6bknT0
 I@Se0nbaFcUPBF]:g]5g_j0
 V@Se0nbaFcUPBF]:g]5g_j0
 S1
-R0
+R4
 R5
 R6
 R7
@@ -127,15 +127,15 @@ R11
 R12
 R13
 valtera_mult_add
+R0
 R1
-R2
 !i10b 1
 !s100 eZH>FWVd?HH`m?WoMMjkE0
 IAHO@B8U8=eC7=Fn;lBSb[3
+R2
 R3
-R4
 S1
-R0
+R4
 R5
 R6
 R7
@@ -151,15 +151,15 @@ R11
 R12
 R13
 valtera_mult_add_rtl
+R0
 R1
-R2
 !i10b 1
 !s100 ;]zD_[eOY6>f?S8zI0VA:3
 I00@4]f2YU7H>d;]d9Je>h0
+R2
 R3
-R4
 S1
-R0
+R4
 R5
 R6
 R7
@@ -175,16 +175,16 @@ R11
 R12
 R13
 valtera_pll
-R1
+R0
 Z14 DXx4 work 22 altera_lnsim_functions 0 22 @Se0nbaFcUPBF]:g]5g_j0
-R2
+R1
 !i10b 1
 !s100 azZKTaW^5QZ8XT>UPD7Oz1
 IQnO2Tbz1OIW:LN1XPH>TU1
+R2
 R3
-R4
 S1
-R0
+R4
 R5
 R6
 R7
@@ -200,15 +200,15 @@ R11
 R12
 R13
 valtera_pll_reconfig_tasks
+R0
 R1
-R2
 !i10b 1
 !s100 VB[f[Z0z<4^CeNj`QV9h43
 ICVK70`FEQTN^ZFHSPI=BI3
+R2
 R3
-R4
 S1
-R0
+R4
 R5
 R6
 R7
@@ -224,15 +224,15 @@ R11
 R12
 R13
 valtera_stratixv_pll
+R0
 R1
-R2
 !i10b 1
 !s100 <e4>nf06f9dBaJdgE=5T[1
 In3gaJ<5k1zizHNJ:<SbZI1
+R2
 R3
-R4
 S1
-R0
+R4
 R5
 R6
 R7
@@ -248,15 +248,15 @@ R11
 R12
 R13
 vama_accumulator_function
+R0
 R1
-R2
 !i10b 1
 !s100 GO2iMmRKCILlboX42?UMn2
 I^Dh@ARP`XbNil=[CXF1ZI0
+R2
 R3
-R4
 S1
-R0
+R4
 R5
 R6
 R7
@@ -272,15 +272,15 @@ R11
 R12
 R13
 vama_adder_function
+R0
 R1
-R2
 !i10b 1
 !s100 SjaF35DFb3h[WO0^7OgBC3
 IZk2jNOeo:?H?>J0L2f8cM3
+R2
 R3
-R4
 S1
-R0
+R4
 R5
 R6
 R7
@@ -296,15 +296,15 @@ R11
 R12
 R13
 vama_coef_reg_ext_function
+R0
 R1
-R2
 !i10b 1
 !s100 VU8j4J[1`cVV>m;lLL@OA1
 I_T9g5im9UgUeFAY>Fj2ck1
+R2
 R3
-R4
 S1
-R0
+R4
 R5
 R6
 R7
@@ -320,15 +320,15 @@ R11
 R12
 R13
 vama_data_split_reg_ext_function
+R0
 R1
-R2
 !i10b 1
 !s100 J[F8ULT=nXlO]4jG;lY6a0
 InLUCaf==7YS:_^=UX]?QL0
+R2
 R3
-R4
 S1
-R0
+R4
 R5
 R6
 R7
@@ -344,15 +344,15 @@ R11
 R12
 R13
 vama_dynamic_signed_function
+R0
 R1
-R2
 !i10b 1
 !s100 zn53M=ca3LVAGjLV]ZN:93
 Im`:n<o13WTfTY<37=35`z1
+R2
 R3
-R4
 S1
-R0
+R4
 R5
 R6
 R7
@@ -368,15 +368,15 @@ R11
 R12
 R13
 vama_multiplier_function
+R0
 R1
-R2
 !i10b 1
 !s100 6Y1Tm5nUG`JC@Lk<k12h@0
 IX^fX3c4Ta<aba;A[RQ]@03
+R2
 R3
-R4
 S1
-R0
+R4
 R5
 R6
 R7
@@ -392,15 +392,15 @@ R11
 R12
 R13
 vama_preadder_function
+R0
 R1
-R2
 !i10b 1
 !s100 RS<JT5c;cL4b<3HH@1MN<0
 Ikn`6I8_WWK3]Q5gHeO=C92
+R2
 R3
-R4
 S1
-R0
+R4
 R5
 R6
 R7
@@ -416,15 +416,15 @@ R11
 R12
 R13
 vama_register_function
+R0
 R1
-R2
 !i10b 1
 !s100 ?zAJnH^]NgY@68hGd1C^Z0
 I0:3PHTAPT`4TGNXzUK9:[2
+R2
 R3
-R4
 S1
-R0
+R4
 R5
 R6
 R7
@@ -440,15 +440,15 @@ R11
 R12
 R13
 vama_register_with_ext_function
+R0
 R1
-R2
 !i10b 1
 !s100 Ki;9DIS7>MKUGGV^ETZKX2
 IbcD9cM@e::hYM@INBTzUS2
+R2
 R3
-R4
 S1
-R0
+R4
 R5
 R6
 R7
@@ -464,15 +464,15 @@ R11
 R12
 R13
 vama_scanchain
+R0
 R1
-R2
 !i10b 1
 !s100 Zi;9gcnV<K;9=[0BYa8@b0
 Ikl0D71WV=kBa=FL:;c?Xd0
+R2
 R3
-R4
 S1
-R0
+R4
 R5
 R6
 R7
@@ -488,15 +488,15 @@ R11
 R12
 R13
 vama_signed_extension_function
+R0
 R1
-R2
 !i10b 1
 !s100 HEVlAS6703SBzG=RecbG52
 IXB5oS`[3>oKS`c9gWFP6Q0
+R2
 R3
-R4
 S1
-R0
+R4
 R5
 R6
 R7
@@ -512,15 +512,15 @@ R11
 R12
 R13
 vama_systolic_adder_function
+R0
 R1
-R2
 !i10b 1
 !s100 ;^M8a7Gj;1k]O5GGFZYe71
 IWakzec68MiX:a[UzF=zlJ2
+R2
 R3
-R4
 S1
-R0
+R4
 R5
 R6
 R7
@@ -536,16 +536,16 @@ R11
 R12
 R13
 vcommon_28nm_mlab_cell_core
-R1
+R0
 R14
-R2
+R1
 !i10b 1
 !s100 D4a01Q7UFL1:6BT<jVbET0
 Ig6NL]20JVbSW2E>k>lYcz1
+R2
 R3
-R4
 S1
-R0
+R4
 R5
 R6
 R7
@@ -561,15 +561,15 @@ R11
 R12
 R13
 vcommon_28nm_mlab_cell_pulse_generator
+R0
 R1
-R2
 !i10b 1
 !s100 4z?>N^lo2EBWVmChefNYD1
 Ig]8I1oV^c@]Ck<DXbKA@J2
+R2
 R3
-R4
 S1
-R0
+R4
 R5
 R6
 R7
@@ -585,15 +585,15 @@ R11
 R12
 R13
 vcommon_28nm_mlab_latch
+R0
 R1
-R2
 !i10b 1
 !s100 2Uak923nNQIJ<;<EM8YnL0
 I1QMA8jJAfbkQL>96zoCmb1
+R2
 R3
-R4
 S1
-R0
+R4
 R5
 R6
 R7
@@ -609,16 +609,16 @@ R11
 R12
 R13
 vcommon_28nm_ram_block
-R1
+R0
 R14
-R2
+R1
 !i10b 1
 !s100 7DO[[bbo:`TGD9DT=dKI81
 IZTE]njldW@gUVg<1eB:;72
+R2
 R3
-R4
 S1
-R0
+R4
 R5
 R6
 R7
@@ -634,15 +634,15 @@ R11
 R12
 R13
 vcommon_28nm_ram_pulse_generator
+R0
 R1
-R2
 !i10b 1
 !s100 oMgcS67l=W_90`b2mI9nP2
 I?Hklj1V3VG6[E[G;f_1KA0
+R2
 R3
-R4
 S1
-R0
+R4
 R5
 R6
 R7
@@ -658,15 +658,15 @@ R11
 R12
 R13
 vcommon_28nm_ram_register
+R0
 R1
-R2
 !i10b 1
 !s100 8m2A05PNC@=>:LcaVIf932
 I60lHUlzm3z7cTUacDP^lJ1
+R2
 R3
-R4
 S1
-R0
+R4
 R5
 R6
 R7
@@ -682,15 +682,15 @@ R11
 R12
 R13
 vcommon_porta_latches
+R0
 R1
-R2
 !i10b 1
 !s100 S;7DhBR>BNO`o_^R]P=IH2
 IYHebh2;6gFh9UIbzLaj^H2
+R2
 R3
-R4
 S1
-R0
+R4
 R5
 R6
 R7
@@ -706,15 +706,15 @@ R11
 R12
 R13
 vcommon_porta_registers
+R0
 R1
-R2
 !i10b 1
 !s100 1`B9iQ^3QiD]D2A^_>N3T1
 IEm9g:@ZQE:8VQO:L^f3hU3
+R2
 R3
-R4
 S1
-R0
+R4
 R5
 R6
 R7
@@ -730,15 +730,15 @@ R11
 R12
 R13
 vdprio_init
+R0
 R1
-R2
 !i10b 1
 !s100 eeRj3=T3a1ZEMTRLljeU11
 IZNK_QbfXznX^D;lhnoAK^3
+R2
 R3
-R4
 S1
-R0
+R4
 R5
 R6
 R7
@@ -754,15 +754,15 @@ R11
 R12
 R13
 vdps_extra_kick
+R0
 R1
-R2
 !i10b 1
 !s100 V;d`AS@=IChN?Rc:DUMB:3
 IY`Z^fe@zQg2HJf]L@E27=1
+R2
 R3
-R4
 S1
-R0
+R4
 R5
 R6
 R7
@@ -778,16 +778,16 @@ R11
 R12
 R13
 vgeneric_28nm_hp_mlab_cell_impl
-R1
+R0
 R14
-R2
+R1
 !i10b 1
 !s100 :ESGNk1KCOdk5S=4lKeTa0
 Il1;2jgIinN_@TCzB4QdAb3
+R2
 R3
-R4
 S1
-R0
+R4
 R5
 R6
 R7
@@ -803,16 +803,16 @@ R11
 R12
 R13
 vgeneric_28nm_lc_mlab_cell_impl
-R1
+R0
 R14
-R2
+R1
 !i10b 1
 !s100 W]bjAlT3mT6ldF:mb[=YT2
 Ie<2a^Xm3]Sb:B_:RSJW]o0
+R2
 R3
-R4
 S1
-R0
+R4
 R5
 R6
 R7
@@ -828,16 +828,16 @@ R11
 R12
 R13
 vgeneric_cdr
-R1
+R0
 R14
-R2
+R1
 !i10b 1
 !s100 6FlgifQGIb4`7bZBi:`^D1
 In@HB]6m`W1I<S7>[oM[K;2
+R2
 R3
-R4
 S1
-R0
+R4
 R5
 R6
 R7
@@ -853,16 +853,16 @@ R11
 R12
 R13
 vgeneric_device_pll
-R1
+R0
 R14
-R2
+R1
 !i10b 1
 !s100 W7FGoQTGXj>Zg[2SPTEU12
 Ik3n@j01?d8TVQAYh3@He?2
+R2
 R3
-R4
 S1
-R0
+R4
 R5
 R6
 R7
@@ -878,15 +878,15 @@ R11
 R12
 R13
 vgeneric_m10k
+R0
 R1
-R2
 !i10b 1
 !s100 W7N9L3gfD8CWWJcj3_?Lc1
 I98?=^m0omQQo6[_NI?VQK2
+R2
 R3
-R4
 S1
-R0
+R4
 R5
 R6
 R7
@@ -902,15 +902,15 @@ R11
 R12
 R13
 vgeneric_m20k
+R0
 R1
-R2
 !i10b 1
 !s100 FO4PG?EIE:[Llk>lX9DMl3
 INeCS_PRjd<P?iKU7G4FnY0
+R2
 R3
-R4
 S1
-R0
+R4
 R5
 R6
 R7
@@ -926,15 +926,15 @@ R11
 R12
 R13
 vgeneric_mux
+R0
 R1
-R2
 !i10b 1
 !s100 3T_DTKgGQ5Vf0n:KTIfji2
 I8B1LB=6[3[foB6=<R;AOM3
+R2
 R3
-R4
 S1
-R0
+R4
 R5
 R6
 R7
@@ -950,17 +950,17 @@ R11
 R12
 R13
 vgeneric_pll
-R1
+R0
 R14
 DXx4 work 28 altera_generic_pll_functions 0 22 BfUZe15YBFa]>M6F42cD73
-R2
+R1
 !i10b 1
 !s100 ^O`A:3zKnjb3aLmbT2EIb3
 I;JIobBX>ENE7ZVQ:LA1;[2
+R2
 R3
-R4
 S1
-R0
+R4
 R5
 R6
 R7
@@ -976,15 +976,15 @@ R11
 R12
 R13
 vpll_dps_lcell_comb
+R0
 R1
-R2
 !i10b 1
 !s100 7RB63<HMbM_AoB8`Q51N91
 Iag76gdD^G_HR4cUI_ARKJ0
+R2
 R3
-R4
 S1
-R0
+R4
 R5
 R6
 R7

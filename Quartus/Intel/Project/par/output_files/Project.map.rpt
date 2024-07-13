@@ -1,5 +1,5 @@
 Analysis & Synthesis report for Project
-Thu Mar 21 20:07:45 2024
+Mon Apr 15 21:32:42 2024
 Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Full Version
 
 
@@ -14,8 +14,9 @@ Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Full Ver
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
   8. General Register Statistics
-  9. Elapsed Time Per Partition
- 10. Analysis & Synthesis Messages
+  9. Inverted Register Statistics
+ 10. Elapsed Time Per Partition
+ 11. Analysis & Synthesis Messages
 
 
 
@@ -41,16 +42,16 @@ applicable agreement for further details.
 +---------------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                          ;
 +------------------------------------+--------------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Thu Mar 21 20:07:45 2024            ;
+; Analysis & Synthesis Status        ; Successful - Mon Apr 15 21:32:42 2024            ;
 ; Quartus II 64-Bit Version          ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Full Version ;
 ; Revision Name                      ; Project                                          ;
 ; Top-level Entity Name              ; Project                                          ;
 ; Family                             ; Cyclone IV E                                     ;
-; Total logic elements               ; 0                                                ;
-;     Total combinational functions  ; 0                                                ;
-;     Dedicated logic registers      ; 0                                                ;
-; Total registers                    ; 0                                                ;
-; Total pins                         ; 2                                                ;
+; Total logic elements               ; 35                                               ;
+;     Total combinational functions  ; 31                                               ;
+;     Dedicated logic registers      ; 28                                               ;
+; Total registers                    ; 28                                               ;
+; Total pins                         ; 10                                               ;
 ; Total virtual pins                 ; 0                                                ;
 ; Total memory bits                  ; 0                                                ;
 ; Embedded Multiplier 9-bit elements ; 0                                                ;
@@ -162,42 +163,43 @@ applicable agreement for further details.
 +----------------------------+-------------+
 
 
-+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                                                         ;
-+----------------------------------+-----------------+------------------------+----------------------------------------------------------------------------------------+---------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type              ; File Name with Absolute Path                                                           ; Library ;
-+----------------------------------+-----------------+------------------------+----------------------------------------------------------------------------------------+---------+
-; ../rtl/Project.v                 ; yes             ; User Verilog HDL File  ; C:/Users/ATLAS/Documents/GitHub/FTP_LI-learning-database/Quartus/Project/rtl/Project.v ;         ;
-+----------------------------------+-----------------+------------------------+----------------------------------------------------------------------------------------+---------+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                               ;
++----------------------------------+-----------------+------------------------+----------------------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type              ; File Name with Absolute Path                                                                 ; Library ;
++----------------------------------+-----------------+------------------------+----------------------------------------------------------------------------------------------+---------+
+; ../rtl/Project.v                 ; yes             ; User Verilog HDL File  ; C:/Users/ATLAS/Documents/GitHub/FTP_LI-learning-database/Quartus/Intel/Project/rtl/Project.v ;         ;
++----------------------------------+-----------------+------------------------+----------------------------------------------------------------------------------------------+---------+
 
 
-+--------------------------------------------------------------+
-; Analysis & Synthesis Resource Usage Summary                  ;
-+---------------------------------------------+----------------+
-; Resource                                    ; Usage          ;
-+---------------------------------------------+----------------+
-;                                             ;                ;
-; Total combinational functions               ; 0              ;
-; Logic element usage by number of LUT inputs ;                ;
-;     -- 4 input functions                    ; 0              ;
-;     -- 3 input functions                    ; 0              ;
-;     -- <=2 input functions                  ; 0              ;
-;                                             ;                ;
-; Logic elements by mode                      ;                ;
-;     -- normal mode                          ; 0              ;
-;     -- arithmetic mode                      ; 0              ;
-;                                             ;                ;
-; Total registers                             ; 0              ;
-;     -- Dedicated logic registers            ; 0              ;
-;     -- I/O registers                        ; 0              ;
-;                                             ;                ;
-; I/O pins                                    ; 2              ;
-; Embedded Multiplier 9-bit elements          ; 0              ;
-; Maximum fan-out node                        ; led_out~output ;
-; Maximum fan-out                             ; 1              ;
-; Total fan-out                               ; 3              ;
-; Average fan-out                             ; 0.75           ;
-+---------------------------------------------+----------------+
++-----------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                     ;
++---------------------------------------------+-------------------+
+; Resource                                    ; Usage             ;
++---------------------------------------------+-------------------+
+; Estimated Total logic elements              ; 35                ;
+;                                             ;                   ;
+; Total combinational functions               ; 31                ;
+; Logic element usage by number of LUT inputs ;                   ;
+;     -- 4 input functions                    ; 6                 ;
+;     -- 3 input functions                    ; 1                 ;
+;     -- <=2 input functions                  ; 24                ;
+;                                             ;                   ;
+; Logic elements by mode                      ;                   ;
+;     -- normal mode                          ; 13                ;
+;     -- arithmetic mode                      ; 18                ;
+;                                             ;                   ;
+; Total registers                             ; 28                ;
+;     -- Dedicated logic registers            ; 28                ;
+;     -- I/O registers                        ; 0                 ;
+;                                             ;                   ;
+; I/O pins                                    ; 10                ;
+; Embedded Multiplier 9-bit elements          ; 0                 ;
+; Maximum fan-out node                        ; ext_clk_25m~input ;
+; Maximum fan-out                             ; 28                ;
+; Total fan-out                               ; 179               ;
+; Average fan-out                             ; 2.27              ;
++---------------------------------------------+-------------------+
 
 
 +-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -205,7 +207,7 @@ applicable agreement for further details.
 +----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------+--------------+
 ; Compilation Hierarchy Node ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name ; Library Name ;
 +----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------+--------------+
-; |Project                   ; 0 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 2    ; 0            ; |Project            ; work         ;
+; |Project                   ; 31 (31)           ; 28 (28)      ; 0           ; 0            ; 0       ; 0         ; 10   ; 0            ; |Project            ; work         ;
 +----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
@@ -215,14 +217,27 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 0     ;
+; Total registers                              ; 28    ;
 ; Number of registers using Synchronous Clear  ; 0     ;
 ; Number of registers using Synchronous Load   ; 0     ;
-; Number of registers using Asynchronous Clear ; 0     ;
+; Number of registers using Asynchronous Clear ; 28    ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 0     ;
+; Number of registers using Clock Enable       ; 8     ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
+
+
++--------------------------------------------------+
+; Inverted Register Statistics                     ;
++----------------------------------------+---------+
+; Inverted Register                      ; Fan out ;
++----------------------------------------+---------+
+; led[1]~reg0                            ; 2       ;
+; led[2]~reg0                            ; 2       ;
+; led[6]~reg0                            ; 2       ;
+; led[7]~reg0                            ; 2       ;
+; Total number of inverted registers = 4 ;         ;
++----------------------------------------+---------+
 
 
 +-------------------------------+
@@ -240,23 +255,28 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit Analysis & Synthesis
     Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Full Version
-    Info: Processing started: Thu Mar 21 20:07:45 2024
+    Info: Processing started: Mon Apr 15 21:32:41 2024
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off Project -c Project
 Info (20030): Parallel compilation is enabled and will use 16 of the 16 processors detected
-Info (12021): Found 1 design units, including 1 entities, in source file /users/atlas/documents/github/ftp_li-learning-database/quartus/project/sim/tb_led.v
+Info (12021): Found 1 design units, including 1 entities, in source file /users/atlas/documents/github/ftp_li-learning-database/quartus/intel/project/sim/tb_led.v
     Info (12023): Found entity 1: tb_led
-Info (12021): Found 1 design units, including 1 entities, in source file /users/atlas/documents/github/ftp_li-learning-database/quartus/project/rtl/project.v
+Warning (10229): Verilog HDL Expression warning at Project.v(15): truncated literal to match 8 bits
+Info (12021): Found 1 design units, including 1 entities, in source file /users/atlas/documents/github/ftp_li-learning-database/quartus/intel/project/rtl/project.v
     Info (12023): Found entity 1: Project
 Info (12127): Elaborating entity "Project" for the top level hierarchy
+Info (13000): Registers with preset signals will power-up high
+Info (13003): DEV_CLRn pin will set, and not reset, register with preset signal due to NOT Gate Push-Back
+Info (286030): Timing-Driven Synthesis is running
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 2 device resources after synthesis - the final resource count might be different
-    Info (21058): Implemented 1 input pins
-    Info (21059): Implemented 1 output pins
-Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 0 warnings
-    Info: Peak virtual memory: 4590 megabytes
-    Info: Processing ended: Thu Mar 21 20:07:45 2024
-    Info: Elapsed time: 00:00:00
+Info (21057): Implemented 45 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 2 input pins
+    Info (21059): Implemented 8 output pins
+    Info (21061): Implemented 35 logic cells
+Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 1 warning
+    Info: Peak virtual memory: 4629 megabytes
+    Info: Processing ended: Mon Apr 15 21:32:42 2024
+    Info: Elapsed time: 00:00:01
     Info: Total CPU time (on all processors): 00:00:00
 
 
