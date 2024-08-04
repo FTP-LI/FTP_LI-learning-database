@@ -1,0 +1,24 @@
+<template name='productList'>
+  
+ <navigator url="../productDetail/productDetail?codeId={{item.id}}">
+   <view class="list">
+
+    <view class='img'>
+      <image src='{{item.pic}}'></image>
+    </view>
+
+    <view class='info'>
+      <view class='list-title'>{{item.name}}</view>
+      <view class='list-desc'>{{item.description}}</view>
+      <view class='list-bottom'>
+        <text>￥{{item.price}}</text>
+        {{item.buynum}}人付款
+      </view>
+    </view>
+
+  </view>
+ 
+ </navigator>
+
+
+</template>

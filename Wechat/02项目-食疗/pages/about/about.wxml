@@ -1,0 +1,37 @@
+<!-- 1.获取头像和昵称 通过组件 
+      <open-data type="获取开发的属性值"></open-data>
+ -->
+<view class='one'>
+    <open-data class="userAvatarUrl" type="userAvatarUrl"></open-data>
+    <open-data type="userNickName"></open-data>
+    <button>点击登录</button>
+</view>
+
+
+
+<!-- 2.获取头像和昵称 
+      按钮的触发事件：open-type='getUserInfo'
+      获取用户信息，可以从bindgetuserinfo回调中获取到用户信息
+  -->
+
+<!-- <view class="two">
+  <button wx:if='{{flag}}' open-type="getUserInfo" bindgetuserinfo="getUserInfo">点击获取头像</button>
+  <view wx:else>
+    <image src="{{userAvatarUrl}}"></image>
+    <text>{{userNickName}}</text>
+  </view>
+</view> -->
+
+
+<!-- 3.授权登录 
+      3.1 授权头像   点击事件--获取用户头像  再次进入app.js获取权限
+      3.2 登录功能
+ -->
+
+<view class="two">
+  <button wx:if='{{flag}}' open-type="getUserInfo" bindgetuserinfo="getUserInfo2">授权头像并登录</button>
+  <view wx:else>
+    <image src="{{userAvatarUrl}}"></image>
+    <text>{{userNickName}}</text>
+  </view>
+</view>

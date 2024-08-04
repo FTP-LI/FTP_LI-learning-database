@@ -1,0 +1,12 @@
+<!-- 渲染 -->
+<view class='title'>{{objInfo.title}}</view>
+
+
+
+<!-- 图片 -->
+<image class="img" src='{{objInfo.image}}'></image>
+
+
+<!-- 文字介绍 -->
+
+<view class='detail'>{{objInfo.detail}}</view>

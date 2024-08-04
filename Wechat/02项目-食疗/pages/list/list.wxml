@@ -1,0 +1,11 @@
+<!-- 列表数据 -->
+
+
+<!-- 引入模板 -->
+<import src='../../templates/productList/productList.wxml'/>
+
+<block wx:for='{{list}}' wx:key='index'>
+
+  <template is='productList' data="{{item}}"></template>
+
+</block>

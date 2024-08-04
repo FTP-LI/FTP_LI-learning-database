@@ -1,0 +1,32 @@
+<!-- 1.顶部布局  -->
+<view class='header'>
+  <navigator  hover-class="none" url='../citys/citys' class='location'>{{location}}</navigator>
+  <view class='inp'>
+  <navigator  hover-class="none" class='nav' url='../search/search'>请输入你想要的内容</navigator>
+  </view>
+</view>
+
+
+<!-- 分类 -->
+<view class="navBar">
+  <view class='item' wx:for='{{navBarArr}}' wx:key='index'>
+    <navigator url="../list/list?mark={{item.id}}" hover-class="none">
+      <image src='{{item.imgUrl}}'></image>
+      <view>{{item.name}}</view>
+    </navigator>
+  </view> 
+</view>
+
+
+<!-- 列表 -->
+<import src="../../templates/productList/productList.wxml"/>
+<!-- 使用模板 -->
+<!-- <template is='productList'></template> -->
+
+<view wx:for='{{listArr}}' wx:key='index'>
+
+  <template is='productList' data='{{item}}'></template>
+
+</view>
+<view>{{msg}}</view>
+

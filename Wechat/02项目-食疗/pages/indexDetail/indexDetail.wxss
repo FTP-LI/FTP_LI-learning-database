@@ -1,0 +1,18 @@
+/* pages/indexDetail/indexDetail.wxss */
+.title{
+  padding: 20rpx;
+}
+
+.img{
+  width: 100%;
+  height: 480rpx;
+}
+
+.detail{
+text-indent: 2em;
+line-height: 38rpx;
+font-size: 28rpx;
+color: #666;
+padding: 20rpx;
+text-align: justify;
+}

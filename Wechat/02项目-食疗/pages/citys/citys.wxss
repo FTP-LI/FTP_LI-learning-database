@@ -1,0 +1,21 @@
+/* pages/citys/citys.wxss */
+.location,.hotcity{
+  padding: 20rpx;
+  font-weight: bold;
+  font-size: 36rpx;
+}
+.getLocation{
+  color: green;
+  margin-left: 20rpx;
+  background: #eee;
+}
+
+.btn{
+  margin: 10rpx;
+  font-weight: normal;
+  background: #fff;
+  border:1px solid #999;
+  border-radius: 10rpx;
+  font-size: 30rpx !important;
+  padding: 4rpx 16rpx !important;
+}

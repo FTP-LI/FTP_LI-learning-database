@@ -5,135 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="dacbe5b7-0e11-45d2-9478-c865b6a004b7" name="Changes" comment="Changes">
-      <change beforePath="$PROJECT_DIR$/../../Quartus/Intel/Project/par/Project.qws" beforeDir="false" afterPath="$PROJECT_DIR$/../../Quartus/Intel/Project/par/Project.qws" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Quartus/Intel/Project/par/Project_nativelink_simulation.rpt" beforeDir="false" afterPath="$PROJECT_DIR$/../../Quartus/Intel/Project/par/Project_nativelink_simulation.rpt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Quartus/Intel/Project/par/db/Project.(0).cnf.cdb" beforeDir="false" afterPath="$PROJECT_DIR$/../../Quartus/Intel/Project/par/db/Project.(0).cnf.cdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Quartus/Intel/Project/par/db/Project.(0).cnf.hdb" beforeDir="false" afterPath="$PROJECT_DIR$/../../Quartus/Intel/Project/par/db/Project.(0).cnf.hdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Quartus/Intel/Project/par/db/Project.asm.qmsg" beforeDir="false" afterPath="$PROJECT_DIR$/../../Quartus/Intel/Project/par/db/Project.asm.qmsg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Quartus/Intel/Project/par/db/Project.asm.rdb" beforeDir="false" afterPath="$PROJECT_DIR$/../../Quartus/Intel/Project/par/db/Project.asm.rdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Quartus/Intel/Project/par/db/Project.asm_labs.ddb" beforeDir="false" afterPath="$PROJECT_DIR$/../../Quartus/Intel/Project/par/db/Project.asm_labs.ddb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Quartus/Intel/Project/par/db/Project.cmp.bpm" beforeDir="false" afterPath="$PROJECT_DIR$/../../Quartus/Intel/Project/par/db/Project.cmp.bpm" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Quartus/Intel/Project/par/db/Project.cmp.cdb" beforeDir="false" afterPath="$PROJECT_DIR$/../../Quartus/Intel/Project/par/db/Project.cmp.cdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Quartus/Intel/Project/par/db/Project.cmp.hdb" beforeDir="false" afterPath="$PROJECT_DIR$/../../Quartus/Intel/Project/par/db/Project.cmp.hdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Quartus/Intel/Project/par/db/Project.cmp.idb" beforeDir="false" afterPath="$PROJECT_DIR$/../../Quartus/Intel/Project/par/db/Project.cmp.idb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Quartus/Intel/Project/par/db/Project.cmp.logdb" beforeDir="false" afterPath="$PROJECT_DIR$/../../Quartus/Intel/Project/par/db/Project.cmp.logdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Quartus/Intel/Project/par/db/Project.cmp.rdb" beforeDir="false" afterPath="$PROJECT_DIR$/../../Quartus/Intel/Project/par/db/Project.cmp.rdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Quartus/Intel/Project/par/db/Project.db_info" beforeDir="false" afterPath="$PROJECT_DIR$/../../Quartus/Intel/Project/par/db/Project.db_info" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Quartus/Intel/Project/par/db/Project.eda.qmsg" beforeDir="false" afterPath="$PROJECT_DIR$/../../Quartus/Intel/Project/par/db/Project.eda.qmsg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Quartus/Intel/Project/par/db/Project.fit.qmsg" beforeDir="false" afterPath="$PROJECT_DIR$/../../Quartus/Intel/Project/par/db/Project.fit.qmsg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Quartus/Intel/Project/par/db/Project.hier_info" beforeDir="false" afterPath="$PROJECT_DIR$/../../Quartus/Intel/Project/par/db/Project.hier_info" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Quartus/Intel/Project/par/db/Project.hif" beforeDir="false" afterPath="$PROJECT_DIR$/../../Quartus/Intel/Project/par/db/Project.hif" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Quartus/Intel/Project/par/db/Project.map.bpm" beforeDir="false" afterPath="$PROJECT_DIR$/../../Quartus/Intel/Project/par/db/Project.map.bpm" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Quartus/Intel/Project/par/db/Project.map.cdb" beforeDir="false" afterPath="$PROJECT_DIR$/../../Quartus/Intel/Project/par/db/Project.map.cdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Quartus/Intel/Project/par/db/Project.map.hdb" beforeDir="false" afterPath="$PROJECT_DIR$/../../Quartus/Intel/Project/par/db/Project.map.hdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Quartus/Intel/Project/par/db/Project.map.kpt" beforeDir="false" afterPath="$PROJECT_DIR$/../../Quartus/Intel/Project/par/db/Project.map.kpt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Quartus/Intel/Project/par/db/Project.map.qmsg" beforeDir="false" afterPath="$PROJECT_DIR$/../../Quartus/Intel/Project/par/db/Project.map.qmsg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Quartus/Intel/Project/par/db/Project.map.rdb" beforeDir="false" afterPath="$PROJECT_DIR$/../../Quartus/Intel/Project/par/db/Project.map.rdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Quartus/Intel/Project/par/db/Project.map_bb.cdb" beforeDir="false" afterPath="$PROJECT_DIR$/../../Quartus/Intel/Project/par/db/Project.map_bb.cdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Quartus/Intel/Project/par/db/Project.map_bb.hdb" beforeDir="false" afterPath="$PROJECT_DIR$/../../Quartus/Intel/Project/par/db/Project.map_bb.hdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Quartus/Intel/Project/par/db/Project.pre_map.hdb" beforeDir="false" afterPath="$PROJECT_DIR$/../../Quartus/Intel/Project/par/db/Project.pre_map.hdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Quartus/Intel/Project/par/db/Project.routing.rdb" beforeDir="false" afterPath="$PROJECT_DIR$/../../Quartus/Intel/Project/par/db/Project.routing.rdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Quartus/Intel/Project/par/db/Project.rtlv.hdb" beforeDir="false" afterPath="$PROJECT_DIR$/../../Quartus/Intel/Project/par/db/Project.rtlv.hdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Quartus/Intel/Project/par/db/Project.rtlv_sg.cdb" beforeDir="false" afterPath="$PROJECT_DIR$/../../Quartus/Intel/Project/par/db/Project.rtlv_sg.cdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Quartus/Intel/Project/par/db/Project.sgdiff.cdb" beforeDir="false" afterPath="$PROJECT_DIR$/../../Quartus/Intel/Project/par/db/Project.sgdiff.cdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Quartus/Intel/Project/par/db/Project.sgdiff.hdb" beforeDir="false" afterPath="$PROJECT_DIR$/../../Quartus/Intel/Project/par/db/Project.sgdiff.hdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Quartus/Intel/Project/par/db/Project.sta.qmsg" beforeDir="false" afterPath="$PROJECT_DIR$/../../Quartus/Intel/Project/par/db/Project.sta.qmsg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Quartus/Intel/Project/par/db/Project.sta.rdb" beforeDir="false" afterPath="$PROJECT_DIR$/../../Quartus/Intel/Project/par/db/Project.sta.rdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Quartus/Intel/Project/par/db/Project.sta_cmp.8_slow_1200mv_85c.tdb" beforeDir="false" afterPath="$PROJECT_DIR$/../../Quartus/Intel/Project/par/db/Project.sta_cmp.8_slow_1200mv_85c.tdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Quartus/Intel/Project/par/db/Project.tiscmp.fast_1200mv_0c.ddb" beforeDir="false" afterPath="$PROJECT_DIR$/../../Quartus/Intel/Project/par/db/Project.tiscmp.fast_1200mv_0c.ddb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Quartus/Intel/Project/par/db/Project.tiscmp.fastest_slow_1200mv_0c.ddb" beforeDir="false" afterPath="$PROJECT_DIR$/../../Quartus/Intel/Project/par/db/Project.tiscmp.fastest_slow_1200mv_0c.ddb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Quartus/Intel/Project/par/db/Project.tiscmp.fastest_slow_1200mv_85c.ddb" beforeDir="false" afterPath="$PROJECT_DIR$/../../Quartus/Intel/Project/par/db/Project.tiscmp.fastest_slow_1200mv_85c.ddb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Quartus/Intel/Project/par/db/Project.tiscmp.slow_1200mv_0c.ddb" beforeDir="false" afterPath="$PROJECT_DIR$/../../Quartus/Intel/Project/par/db/Project.tiscmp.slow_1200mv_0c.ddb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Quartus/Intel/Project/par/db/Project.tiscmp.slow_1200mv_85c.ddb" beforeDir="false" afterPath="$PROJECT_DIR$/../../Quartus/Intel/Project/par/db/Project.tiscmp.slow_1200mv_85c.ddb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Quartus/Intel/Project/par/db/Project.tmw_info" beforeDir="false" afterPath="$PROJECT_DIR$/../../Quartus/Intel/Project/par/db/Project.tmw_info" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Quartus/Intel/Project/par/db/Project.vpr.ammdb" beforeDir="false" afterPath="$PROJECT_DIR$/../../Quartus/Intel/Project/par/db/Project.vpr.ammdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Quartus/Intel/Project/par/db/logic_util_heursitic.dat" beforeDir="false" afterPath="$PROJECT_DIR$/../../Quartus/Intel/Project/par/db/logic_util_heursitic.dat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Quartus/Intel/Project/par/db/prev_cmp_Project.qmsg" beforeDir="false" afterPath="$PROJECT_DIR$/../../Quartus/Intel/Project/par/db/prev_cmp_Project.qmsg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Quartus/Intel/Project/par/incremental_db/compiled_partitions/Project.root_partition.cmp.ammdb" beforeDir="false" afterPath="$PROJECT_DIR$/../../Quartus/Intel/Project/par/incremental_db/compiled_partitions/Project.root_partition.cmp.ammdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Quartus/Intel/Project/par/incremental_db/compiled_partitions/Project.root_partition.cmp.cdb" beforeDir="false" afterPath="$PROJECT_DIR$/../../Quartus/Intel/Project/par/incremental_db/compiled_partitions/Project.root_partition.cmp.cdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Quartus/Intel/Project/par/incremental_db/compiled_partitions/Project.root_partition.cmp.hdb" beforeDir="false" afterPath="$PROJECT_DIR$/../../Quartus/Intel/Project/par/incremental_db/compiled_partitions/Project.root_partition.cmp.hdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Quartus/Intel/Project/par/incremental_db/compiled_partitions/Project.root_partition.cmp.rcfdb" beforeDir="false" afterPath="$PROJECT_DIR$/../../Quartus/Intel/Project/par/incremental_db/compiled_partitions/Project.root_partition.cmp.rcfdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Quartus/Intel/Project/par/incremental_db/compiled_partitions/Project.root_partition.map.cdb" beforeDir="false" afterPath="$PROJECT_DIR$/../../Quartus/Intel/Project/par/incremental_db/compiled_partitions/Project.root_partition.map.cdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Quartus/Intel/Project/par/incremental_db/compiled_partitions/Project.root_partition.map.dpi" beforeDir="false" afterPath="$PROJECT_DIR$/../../Quartus/Intel/Project/par/incremental_db/compiled_partitions/Project.root_partition.map.dpi" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Quartus/Intel/Project/par/incremental_db/compiled_partitions/Project.root_partition.map.hbdb.cdb" beforeDir="false" afterPath="$PROJECT_DIR$/../../Quartus/Intel/Project/par/incremental_db/compiled_partitions/Project.root_partition.map.hbdb.cdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Quartus/Intel/Project/par/incremental_db/compiled_partitions/Project.root_partition.map.hbdb.hdb" beforeDir="false" afterPath="$PROJECT_DIR$/../../Quartus/Intel/Project/par/incremental_db/compiled_partitions/Project.root_partition.map.hbdb.hdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Quartus/Intel/Project/par/incremental_db/compiled_partitions/Project.root_partition.map.hdb" beforeDir="false" afterPath="$PROJECT_DIR$/../../Quartus/Intel/Project/par/incremental_db/compiled_partitions/Project.root_partition.map.hdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Quartus/Intel/Project/par/incremental_db/compiled_partitions/Project.root_partition.map.kpt" beforeDir="false" afterPath="$PROJECT_DIR$/../../Quartus/Intel/Project/par/incremental_db/compiled_partitions/Project.root_partition.map.kpt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Quartus/Intel/Project/par/output_files/Project.asm.rpt" beforeDir="false" afterPath="$PROJECT_DIR$/../../Quartus/Intel/Project/par/output_files/Project.asm.rpt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Quartus/Intel/Project/par/output_files/Project.done" beforeDir="false" afterPath="$PROJECT_DIR$/../../Quartus/Intel/Project/par/output_files/Project.done" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Quartus/Intel/Project/par/output_files/Project.eda.rpt" beforeDir="false" afterPath="$PROJECT_DIR$/../../Quartus/Intel/Project/par/output_files/Project.eda.rpt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Quartus/Intel/Project/par/output_files/Project.fit.rpt" beforeDir="false" afterPath="$PROJECT_DIR$/../../Quartus/Intel/Project/par/output_files/Project.fit.rpt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Quartus/Intel/Project/par/output_files/Project.fit.summary" beforeDir="false" afterPath="$PROJECT_DIR$/../../Quartus/Intel/Project/par/output_files/Project.fit.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Quartus/Intel/Project/par/output_files/Project.flow.rpt" beforeDir="false" afterPath="$PROJECT_DIR$/../../Quartus/Intel/Project/par/output_files/Project.flow.rpt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Quartus/Intel/Project/par/output_files/Project.jdi" beforeDir="false" afterPath="$PROJECT_DIR$/../../Quartus/Intel/Project/par/output_files/Project.jdi" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Quartus/Intel/Project/par/output_files/Project.map.rpt" beforeDir="false" afterPath="$PROJECT_DIR$/../../Quartus/Intel/Project/par/output_files/Project.map.rpt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Quartus/Intel/Project/par/output_files/Project.map.summary" beforeDir="false" afterPath="$PROJECT_DIR$/../../Quartus/Intel/Project/par/output_files/Project.map.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Quartus/Intel/Project/par/output_files/Project.pin" beforeDir="false" afterPath="$PROJECT_DIR$/../../Quartus/Intel/Project/par/output_files/Project.pin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Quartus/Intel/Project/par/output_files/Project.sof" beforeDir="false" afterPath="$PROJECT_DIR$/../../Quartus/Intel/Project/par/output_files/Project.sof" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Quartus/Intel/Project/par/output_files/Project.sta.rpt" beforeDir="false" afterPath="$PROJECT_DIR$/../../Quartus/Intel/Project/par/output_files/Project.sta.rpt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Quartus/Intel/Project/par/output_files/Project.sta.summary" beforeDir="false" afterPath="$PROJECT_DIR$/../../Quartus/Intel/Project/par/output_files/Project.sta.summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Quartus/Intel/Project/par/simulation/modelsim/Project.vo" beforeDir="false" afterPath="$PROJECT_DIR$/../../Quartus/Intel/Project/par/simulation/modelsim/Project.vo" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Quartus/Intel/Project/par/simulation/modelsim/Project_8_1200mv_0c_slow.vo" beforeDir="false" afterPath="$PROJECT_DIR$/../../Quartus/Intel/Project/par/simulation/modelsim/Project_8_1200mv_0c_slow.vo" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Quartus/Intel/Project/par/simulation/modelsim/Project_8_1200mv_0c_v_slow.sdo" beforeDir="false" afterPath="$PROJECT_DIR$/../../Quartus/Intel/Project/par/simulation/modelsim/Project_8_1200mv_0c_v_slow.sdo" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Quartus/Intel/Project/par/simulation/modelsim/Project_8_1200mv_85c_slow.vo" beforeDir="false" afterPath="$PROJECT_DIR$/../../Quartus/Intel/Project/par/simulation/modelsim/Project_8_1200mv_85c_slow.vo" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Quartus/Intel/Project/par/simulation/modelsim/Project_8_1200mv_85c_v_slow.sdo" beforeDir="false" afterPath="$PROJECT_DIR$/../../Quartus/Intel/Project/par/simulation/modelsim/Project_8_1200mv_85c_v_slow.sdo" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Quartus/Intel/Project/par/simulation/modelsim/Project_min_1200mv_0c_fast.vo" beforeDir="false" afterPath="$PROJECT_DIR$/../../Quartus/Intel/Project/par/simulation/modelsim/Project_min_1200mv_0c_fast.vo" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Quartus/Intel/Project/par/simulation/modelsim/Project_min_1200mv_0c_v_fast.sdo" beforeDir="false" afterPath="$PROJECT_DIR$/../../Quartus/Intel/Project/par/simulation/modelsim/Project_min_1200mv_0c_v_fast.sdo" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Quartus/Intel/Project/par/simulation/modelsim/Project_modelsim.xrf" beforeDir="false" afterPath="$PROJECT_DIR$/../../Quartus/Intel/Project/par/simulation/modelsim/Project_modelsim.xrf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Quartus/Intel/Project/par/simulation/modelsim/Project_run_msim_rtl_verilog.do" beforeDir="false" afterPath="$PROJECT_DIR$/../../Quartus/Intel/Project/par/simulation/modelsim/Project_run_msim_rtl_verilog.do" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Quartus/Intel/Project/par/simulation/modelsim/Project_v.sdo" beforeDir="false" afterPath="$PROJECT_DIR$/../../Quartus/Intel/Project/par/simulation/modelsim/Project_v.sdo" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Quartus/Intel/Project/par/simulation/modelsim/msim_transcript" beforeDir="false" afterPath="$PROJECT_DIR$/../../Quartus/Intel/Project/par/simulation/modelsim/msim_transcript" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Quartus/Intel/Project/par/simulation/modelsim/rtl_work/@_opt/_lib.qdb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Quartus/Intel/Project/par/simulation/modelsim/rtl_work/@_opt/_lib1_0.qdb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Quartus/Intel/Project/par/simulation/modelsim/rtl_work/@_opt/_lib1_0.qpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Quartus/Intel/Project/par/simulation/modelsim/rtl_work/@_opt/_lib1_0.qtl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Quartus/Intel/Project/par/simulation/modelsim/rtl_work/@_opt/_lib2_0.qdb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Quartus/Intel/Project/par/simulation/modelsim/rtl_work/@_opt/_lib2_0.qpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Quartus/Intel/Project/par/simulation/modelsim/rtl_work/@_opt/_lib2_0.qtl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Quartus/Intel/Project/par/simulation/modelsim/rtl_work/@_opt/_lib3_0.qdb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Quartus/Intel/Project/par/simulation/modelsim/rtl_work/@_opt/_lib3_0.qpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Quartus/Intel/Project/par/simulation/modelsim/rtl_work/@_opt/_lib3_0.qtl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Quartus/Intel/Project/par/simulation/modelsim/rtl_work/@_opt/_lib4_0.qdb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Quartus/Intel/Project/par/simulation/modelsim/rtl_work/@_opt/_lib4_0.qpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Quartus/Intel/Project/par/simulation/modelsim/rtl_work/@_opt/_lib4_0.qtl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Quartus/Intel/Project/par/simulation/modelsim/rtl_work/_info" beforeDir="false" afterPath="$PROJECT_DIR$/../../Quartus/Intel/Project/par/simulation/modelsim/rtl_work/_info" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Quartus/Intel/Project/par/simulation/modelsim/rtl_work/_lib.qdb" beforeDir="false" afterPath="$PROJECT_DIR$/../../Quartus/Intel/Project/par/simulation/modelsim/rtl_work/_lib.qdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Quartus/Intel/Project/par/simulation/modelsim/rtl_work/_lib1_0.qdb" beforeDir="false" afterPath="$PROJECT_DIR$/../../Quartus/Intel/Project/par/simulation/modelsim/rtl_work/_lib1_0.qdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Quartus/Intel/Project/par/simulation/modelsim/rtl_work/_lib1_0.qtl" beforeDir="false" afterPath="$PROJECT_DIR$/../../Quartus/Intel/Project/par/simulation/modelsim/rtl_work/_lib1_0.qtl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Quartus/Intel/Project/par/simulation/modelsim/verilog_libs/altera_lnsim_ver/_info" beforeDir="false" afterPath="$PROJECT_DIR$/../../Quartus/Intel/Project/par/simulation/modelsim/verilog_libs/altera_lnsim_ver/_info" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Quartus/Intel/Project/par/simulation/modelsim/verilog_libs/altera_lnsim_ver/_lib.qdb" beforeDir="false" afterPath="$PROJECT_DIR$/../../Quartus/Intel/Project/par/simulation/modelsim/verilog_libs/altera_lnsim_ver/_lib.qdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Quartus/Intel/Project/par/simulation/modelsim/verilog_libs/altera_lnsim_ver/_lib1_3.qdb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Quartus/Intel/Project/par/simulation/modelsim/verilog_libs/altera_lnsim_ver/_lib1_3.qpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Quartus/Intel/Project/par/simulation/modelsim/verilog_libs/altera_lnsim_ver/_lib1_3.qtl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Quartus/Intel/Project/par/simulation/modelsim/verilog_libs/altera_mf_ver/_info" beforeDir="false" afterPath="$PROJECT_DIR$/../../Quartus/Intel/Project/par/simulation/modelsim/verilog_libs/altera_mf_ver/_info" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Quartus/Intel/Project/par/simulation/modelsim/verilog_libs/altera_mf_ver/_lib.qdb" beforeDir="false" afterPath="$PROJECT_DIR$/../../Quartus/Intel/Project/par/simulation/modelsim/verilog_libs/altera_mf_ver/_lib.qdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Quartus/Intel/Project/par/simulation/modelsim/verilog_libs/altera_mf_ver/_lib1_3.qdb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Quartus/Intel/Project/par/simulation/modelsim/verilog_libs/altera_mf_ver/_lib1_3.qpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Quartus/Intel/Project/par/simulation/modelsim/verilog_libs/altera_mf_ver/_lib1_3.qtl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Quartus/Intel/Project/par/simulation/modelsim/verilog_libs/altera_ver/_info" beforeDir="false" afterPath="$PROJECT_DIR$/../../Quartus/Intel/Project/par/simulation/modelsim/verilog_libs/altera_ver/_info" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Quartus/Intel/Project/par/simulation/modelsim/verilog_libs/altera_ver/_lib.qdb" beforeDir="false" afterPath="$PROJECT_DIR$/../../Quartus/Intel/Project/par/simulation/modelsim/verilog_libs/altera_ver/_lib.qdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Quartus/Intel/Project/par/simulation/modelsim/verilog_libs/altera_ver/_lib1_1.qdb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Quartus/Intel/Project/par/simulation/modelsim/verilog_libs/altera_ver/_lib1_1.qpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Quartus/Intel/Project/par/simulation/modelsim/verilog_libs/altera_ver/_lib1_1.qtl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Quartus/Intel/Project/par/simulation/modelsim/verilog_libs/cycloneive_ver/_info" beforeDir="false" afterPath="$PROJECT_DIR$/../../Quartus/Intel/Project/par/simulation/modelsim/verilog_libs/cycloneive_ver/_info" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Quartus/Intel/Project/par/simulation/modelsim/verilog_libs/cycloneive_ver/_lib.qdb" beforeDir="false" afterPath="$PROJECT_DIR$/../../Quartus/Intel/Project/par/simulation/modelsim/verilog_libs/cycloneive_ver/_lib.qdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Quartus/Intel/Project/par/simulation/modelsim/verilog_libs/cycloneive_ver/_lib1_3.qdb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Quartus/Intel/Project/par/simulation/modelsim/verilog_libs/cycloneive_ver/_lib1_3.qpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Quartus/Intel/Project/par/simulation/modelsim/verilog_libs/cycloneive_ver/_lib1_3.qtl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Quartus/Intel/Project/par/simulation/modelsim/verilog_libs/lpm_ver/_info" beforeDir="false" afterPath="$PROJECT_DIR$/../../Quartus/Intel/Project/par/simulation/modelsim/verilog_libs/lpm_ver/_info" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Quartus/Intel/Project/par/simulation/modelsim/verilog_libs/lpm_ver/_lib.qdb" beforeDir="false" afterPath="$PROJECT_DIR$/../../Quartus/Intel/Project/par/simulation/modelsim/verilog_libs/lpm_ver/_lib.qdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Quartus/Intel/Project/par/simulation/modelsim/verilog_libs/lpm_ver/_lib1_1.qdb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Quartus/Intel/Project/par/simulation/modelsim/verilog_libs/lpm_ver/_lib1_1.qpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Quartus/Intel/Project/par/simulation/modelsim/verilog_libs/lpm_ver/_lib1_1.qtl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Quartus/Intel/Project/par/simulation/modelsim/verilog_libs/sgate_ver/_info" beforeDir="false" afterPath="$PROJECT_DIR$/../../Quartus/Intel/Project/par/simulation/modelsim/verilog_libs/sgate_ver/_info" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Quartus/Intel/Project/par/simulation/modelsim/verilog_libs/sgate_ver/_lib.qdb" beforeDir="false" afterPath="$PROJECT_DIR$/../../Quartus/Intel/Project/par/simulation/modelsim/verilog_libs/sgate_ver/_lib.qdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Quartus/Intel/Project/par/simulation/modelsim/verilog_libs/sgate_ver/_lib1_1.qdb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Quartus/Intel/Project/par/simulation/modelsim/verilog_libs/sgate_ver/_lib1_1.qpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Quartus/Intel/Project/par/simulation/modelsim/verilog_libs/sgate_ver/_lib1_1.qtl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Quartus/Intel/Project/rtl/Project.v" beforeDir="false" afterPath="$PROJECT_DIR$/../../Quartus/Intel/Project/rtl/Project.v" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../STM32 Project/STM32F103C8T6/进阶项目/基于STM32F103C8T6 小桌宠/Project.uvguix.ATLAS" beforeDir="false" afterPath="$PROJECT_DIR$/../../STM32 Project/STM32F103C8T6/进阶项目/基于STM32F103C8T6 小桌宠/Project.uvguix.ATLAS" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../STM32 Project/STM32F103C8T6/进阶项目/基于STM32F103C8T6 小桌宠/Project.uvoptx" beforeDir="false" afterPath="$PROJECT_DIR$/../../STM32 Project/STM32F103C8T6/进阶项目/基于STM32F103C8T6 小桌宠/Project.uvoptx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../STM32 Project/STM32F103C8T6/进阶项目/基于STM32F103C8T6 小桌宠/Project.uvprojx" beforeDir="false" afterPath="$PROJECT_DIR$/../../STM32 Project/STM32F103C8T6/进阶项目/基于STM32F103C8T6 小桌宠/Project.uvprojx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Matlab/2024 shengsai/C.m" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -154,13 +28,14 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "C:/Users/ATLAS"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/ATLAS&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="main" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="PyCharm" />

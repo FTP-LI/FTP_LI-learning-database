@@ -1,0 +1,70 @@
+/* pages/productDetail/productDetail.wxss */
+page{
+  background: #f5f5f5;
+}
+
+.title{
+  background: #fff;
+  padding: 20rpx;
+  font-size: 36rpx;
+  font-weight: bold;
+}
+
+
+.content{
+  padding: 20rpx;
+  line-height: 36rpx;
+  font-size: 28rpx;
+  color: #666;
+  text-indent: 2em;
+  background: #fff;
+  margin-bottom: 160rpx;
+}
+
+.time{
+padding: 20rpx;
+margin-top: 20rpx;
+margin-bottom: 20rpx;
+background: #fff;
+}
+
+
+
+/* 购物车布局 */
+.bottom{
+position: fixed;
+bottom: 0;
+left:0;
+right: 0;
+background: #fff;
+height: 80rpx;
+line-height: 80rpx;
+align-items: center;
+display: flex;
+padding: 20rpx;
+font-size: 30rpx;
+}
+.img{
+  flex: 1;
+  text-align: right;
+}
+.img image{
+  width: 60rpx;
+  height: 60rpx;
+  padding-right: 20rpx;
+  margin-top: 10rpx;
+}
+
+.addShop{
+  background: red;
+  color: #fff;
+  padding: 0 20rpx;
+  border-radius: 10rpx 0 0 10rpx;
+}
+
+.buy-now{
+  background: pink;
+  color: #fff;
+  padding: 0 20rpx;
+  border-radius: 0rpx 10rpx 10rpx 0;
+}

@@ -1,0 +1,19 @@
+<view class="title">{{info.name}}</view>
+
+<view class='time'>价格：{{info.price}}</view>
+
+<image src='{{info.pic}}'></image>
+
+<view class="content">{{info.details}}</view>
+
+
+
+
+<!-- 加入购物车布局 -->
+<view class='bottom'>
+  <view class='img'>
+      <image bindtap='gomyCart' src='../../images/tab9.png'></image>
+  </view>
+  <view class="addShop" bindtap="addShop">加入购物车</view>
+  <view class="buy-now">直接购买</view>
+</view>

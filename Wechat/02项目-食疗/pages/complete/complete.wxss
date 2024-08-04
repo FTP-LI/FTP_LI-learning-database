@@ -1,0 +1,9 @@
+/* pages/complete/complete.wxss */
+page{
+  background: #f5f5f5;
+}
+.comp{
+  background: #fff;
+  padding: 30rpx;
+  text-align: center;
+}

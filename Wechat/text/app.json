@@ -1,0 +1,35 @@
+{
+  "pages": [
+    "pages/STM/STM",
+    "pages/index/index",
+    "pages/logs/logs"
+  ],
+  "tabBar":{
+    "selectedColor":"#D53e37",
+     "backgroundColor": "#f5f5f5",
+     "borderStyle": "white",
+     "list":[
+       {
+         "text":"电影",
+         "pagePath":"pages/index/index",
+         "icinPath":"",
+         "selectedicinPath": ""
+       },
+       {
+         "text":"影院",
+         "pagePath":"pages/STM/STM",
+         "icinPath":"",
+         "selectedicinPath": ""
+       }
+     ]
+   },
+  "window": {
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "Weixin",
+    "navigationBarBackgroundColor": "#ffffff"
+  },
+  "style": "v2",
+  "componentFramework": "glass-easel",
+  "sitemapLocation": "sitemap.json",
+  "lazyCodeLoading": "requiredComponents"
+}

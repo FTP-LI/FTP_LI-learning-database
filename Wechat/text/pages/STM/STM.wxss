@@ -1,0 +1,4 @@
+.coin-info{
+    line-height: 60rpx;
+    font-size: 28rpx;
+  }

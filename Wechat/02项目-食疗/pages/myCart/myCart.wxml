@@ -1,0 +1,77 @@
+ <!-- <view class='list {{active?"touch-move":""}}' bindtouchstart="touchStart" bindtouchmove="touchMove">
+    <view class="item">
+      <view class="circle">
+        <icon wx:if='{{isSeleted}}' type='success' color="#43bf92"></icon>
+        <icon wx:else type='circle' color="#999"></icon>
+      </view>
+
+      <view class='img'>
+        <image src='../../images/item-1.jpg'></image>
+      </view>
+
+      <view class='content'>
+        <view class="title">标题</view>
+        <view class="desc">文字描述</view>
+        <view class="bottom">
+            <text class="money">￥35.00</text>
+            <view class="edit">
+              <text class="reduce">-</text>
+              <text class='num'>1</text>
+              <text class="add">+</text>
+            </view>
+        </view>
+      </view>
+
+    </view>
+    <view class="delete">删除</view>
+</view> -->
+
+<block wx:for='{{list}}' wx:key='index'>
+<!-- 为了滑动删除的时候  操作的是当前的list容器，不是所有的active都改变，变active给list数组每一项对象添加属性 -->
+  <view  data-index='{{index}}'class='list {{item.active?"touch-move":""}}' bindtouchstart="touchStart" bindtouchmove="touchMove">
+    <view class="item">
+      <view class="circle">
+        <icon bindtap="selectedList"  data-index='{{index}}' wx:if='{{item.isSeleted}}' type='success' color="#43bf92"></icon>
+        <icon bindtap="selectedList"  data-index='{{index}}' wx:else type='circle' color="#999"></icon>
+      </view>
+
+      <view class='img'>
+        <image src='{{item.pic}}'></image>
+      </view>
+
+      <view class='content'>
+        <view class="title">{{item.name}}</view>
+        <view class="desc">{{item.info}}</view>
+        <view class="bottom">
+            <text class="money">￥{{item.price}}</text>
+            <view class="edit">
+              <text class="reduce" bindtap='reduce' data-index='{{index}}'>-</text>
+              <text class='num'>{{item.num}}</text>
+              <text class="add" bindtap='add' data-index='{{index}}'>+</text>
+            </view>
+        </view>
+      </view>
+
+    </view>
+    <view class="delete" bindtap='delete' data-index='{{index}}'>删除</view>
+</view>
+
+</block>
+
+
+<!-- 占位 -->
+<view class='gao'></view>
+
+<!-- 全选布局 -->
+<view class='myCart-bottom'>
+
+  <view class="selectedAll">
+        <icon bindtap='seletedAll' wx:if='{{isSeletedAll}}' type='success' color="#43bf92"></icon>
+        <icon bindtap='seletedAll' wx:else type='circle' color="#999"></icon>
+        <text>全选</text>
+  </view>
+
+  <view class='heji'>合计:<text>{{totalPrice}}</text></view>
+  <view  class='jiesuan {{num>0?"acitveAll":""}}' bindtap='jiesuan'>结算:{{totalPrice}}</view>
+
+</view>

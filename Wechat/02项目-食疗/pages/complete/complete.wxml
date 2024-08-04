@@ -1,0 +1,4 @@
+<!--pages/complete/complete.wxml-->
+<view class='comp'> 
+    <text>{{msg}}</text>
+</view>

@@ -1,0 +1,36 @@
+/* pages/about/about.wxss */
+page{
+  background: #f5f5f5;
+}
+
+.one{
+  background: #fff;
+  padding: 20rpx;
+  display: flex;
+  align-items: center;
+  margin-top: 20rpx;
+  margin-bottom: 40rpx;
+}
+.one .userAvatarUrl{
+  width: 160rpx;
+  height: 160rpx;
+  border-radius: 50%;
+  border: 1rpx solid #eee;
+  overflow: hidden;
+  margin-right: 20rpx;
+}
+
+
+
+.two{
+  background: #fff;
+  padding: 20rpx;
+}
+.two image{
+  width: 160rpx;
+  height: 160rpx;
+  border-radius: 50%;
+  border: 1rpx solid #eee;
+  overflow: hidden;
+  margin-right: 20rpx;
+}

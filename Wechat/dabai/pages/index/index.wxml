@@ -1,0 +1,10 @@
+<!--index.wxml-->
+<swiper indicator-dots="true"
+  autoplay="true" interval="5000" duration="1000" style="height:{{bannerHeight}}px;" indicator-active-color="#dddddd" indicator-color="rgba(150,150,150,.5)">
+  <block wx:for="123" wx:key="">
+    <swiper-item>
+      <image src="/images/slide-{{item}}.jpg" mode="aspectFill" class="swiper-image" bindtap="copyWechat" />
+    </swiper-item>
+  </block>
+</swiper>
+<image src="/images/bg.jpg" mode="widthFix" bindtap="copyWechat" />

@@ -1,0 +1,100 @@
+<!-- 1.轮播图区域 -->
+<!-- <view class='banner'>
+  <swiper autoplay='true' interval='3000' circular='true' bindchange='swiperChange'>
+    <swiper-item>
+      <image src='../../images/banner.jpg'></image>
+      <view class="banner-info">内容</view>
+    </swiper-item>
+    <swiper-item>
+      <image src='../../images/banner.jpg'></image>
+       <view class="banner-info">内容</view>
+    </swiper-item>
+    <swiper-item>
+      <image src='../../images/banner.jpg'></image>
+       <view class="banner-info">内容</view>
+    </swiper-item>
+  </swiper>
+
+  <view class='banner-num'>
+    {{current}}/3
+  </view>
+
+</view> -->
+
+<view class='banner'>
+  <swiper autoplay='true' interval='3000' circular='true' bindchange='swiperChange'>
+    
+    <swiper-item wx:for='{{bannerArr}}' wx:key='index'>
+      <image src='{{item.image}}'></image>
+      <view class="banner-info">{{item.title}}</view>
+    </swiper-item>
+
+  </swiper>
+
+  <view class='banner-num'>
+    {{current}}/{{bannerArr.length}}
+  </view>
+
+</view>
+
+<!-- 2.每日一测 -->
+
+<view class='oneday'>
+  <view class='item'>
+    <image src='../../images/info_left.jpg'></image>
+    <view>每日一测</view>
+  </view>
+   <view class='item'>
+    <image src='../../images/info_right.jpg'></image>
+    <view>每日食谱</view>
+  </view>
+</view>
+
+
+<!-- 3.内容信息  列表展示  -->
+<view class='wrapper'>
+  <!-- <view class='list'>
+    <view class='title'>标题</view>
+    <view class='list-info'>
+        <image src='../../images/info_left.jpg'></image>
+        <view class='info'>
+          <view class='desc'>文字表述动画动画好的好的</view>
+          <view class="readnum"><text>338383</text>次阅读</view>
+      </view>
+    </view>
+    
+  </view> -->
+  <!-- 3.1 动态获取数据
+       3.2  页面跳转  <navigator url='xxx/xxx?id=123'></navigator> 
+       3.3  页面跳转  小程序api跳转页面 wx.naxxx  
+                  给当前的元素添加事件 在事件里面跳转页面
+                  组件data-属性 传递数值 事件的参数传递 把数据传递给事件---事件传url地址
+       3.4  页面之期间的值传递：
+              1.url地址传递参数  组件navigator
+              2.在跳转到的页面的js文件里面 onload函数接受参数options
+
+   -->
+  <!-- <view class='list' wx:for='{{list}}' wx:key='index'>
+    <navigator url='../indexDetail/indexDetail?id={{item.id}}'>
+      <view class='title'>{{item.title}}</view>
+      <view class='list-info'>
+          <image src='{{item.image}}'></image>
+          <view class='info'>
+            <view class='desc'>{{item.desc}}</view>
+            <view class="readnum"><text>{{item.readNum}}</text>次阅读</view>
+        </view>
+      </view>
+    </navigator> 
+  </view> -->
+
+ <view class='list' wx:for='{{list}}' wx:key='index' bindtap='tiao' data-mark='{{item.id}}'>
+      <view class='title'>{{item.title}}</view>
+      <view class='list-info'>
+          <image src='{{item.image}}'></image>
+          <view class='info'>
+            <view class='desc'>{{item.desc}}</view>
+            <view class="readnum"><text>{{item.readNum}}</text>次阅读</view>
+        </view>
+      </view>
+  </view>
+</view>
