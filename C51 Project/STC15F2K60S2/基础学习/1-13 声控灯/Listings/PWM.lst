@@ -1,0 +1,66 @@
+C51 COMPILER V9.54   PWM                                                                   01/04/2025 17:21:36 PAGE 1   
+
+
+C51 COMPILER V9.54, COMPILATION OF MODULE PWM
+OBJECT MODULE PLACED IN .\Objects\PWM.obj
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE Hardware\PWM.c LARGE OPTIMIZE(8,SPEED) BROWSE INCDIR(.\Hardware;.\System
+                    -;.\User;C:\Keil_v5\C51\INC\STC) DEBUG OBJECTEXTEND PRINT(.\Listings\PWM.lst) OBJECT(.\Objects\PWM.obj)
+
+line level    source
+
+   1          #include "PWM.h"
+   2          
+   3          void PWM0_Init(void)//本函数为PWM_0模块初始化
+   4          {
+   5   1          CMOD = 0x04;                //T0计时器控制PWM周期
+   6   1          CCON = 0x00;                //不使用中断标志，CR完成后置一
+   7   1          CCAPM0 = 0x42;              //使能比较功能，允许PWM输出
+   8   1          CL = CH = 0;                //计数器初始化
+   9   1          CCAP0L = CCAP0H = 0;        //比较值初始化
+  10   1          PCA_PWM0 = 0x00;            //PWM_0:工作于八位PWM功能
+  11   1          AUXR1 = 0xCC;               //使用PWM_0第一组PWM输出接口，即P1.1引脚
+  12   1          
+  13   1          CR = 1;//使能PWM模块
+  14   1          Timer0_Init();
+  15   1      }
+  16          
+  17          void Timer0_Init(void)          //11.0592MHz
+  18          {
+  19   1              AUXR |= 0x80;                   //定时器时钟1T模式
+  20   1              TMOD &= 0xF0;                   //设置定时器模式
+  21   1              TL0 = 0xA0;                             //设置定时初始值,864分频系数
+  22   1              TH0 = 0xCF;                             //设置定时初始值
+  23   1              TF0 = 0;                                //清除TF0标志
+  24   1              TR0 = 1;                                //定时器0开始计时
+  25   1      }
+  26          
+  27          /*PWM频率计算
+  28          PWM=PCA时钟源/256=SYSclk/x/256 即系统时钟/分频系数/256
+  29          本函数中使用STC15F2K60S2 自带时钟源进行计算即11.0592MHz
+  30          可得要得到50Hz（即20ms）的PWM输出 分配系数为864，则T0计时器的初值为65536-864=64672 即0xFCA0
+  31          为了简便T0选择1T模式，16位自动重装，可通过STC-ISP快速得到代码
+  32          */
+  33          
+  34          void Steer_SetAngle(uint8_t Angle)
+  35          {
+  36   1          CCAP0H = 249 - Angle/180*25;
+  37   1      }
+  38          /*PWM占空比计算
+  39          PWM占空比=(256-CCAPn)/256 本函数使用CCAP0模块固为CCAP0
+  40          对于舵机 PWM占空比2.5%~12.5%即0~180°
+  41          则CCAP0的范围为 249~224 编辑CCAP0H和CCAP0L寄存器
+  42          */
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     61    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

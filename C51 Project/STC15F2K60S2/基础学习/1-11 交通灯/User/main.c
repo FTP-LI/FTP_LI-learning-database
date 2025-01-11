@@ -1,85 +1,52 @@
 #include <STC15F2K60S2.H>
 #include "Delay.h"
 
-sbit Part1=P0^1;
-sbit Part2=P0^3;
+sbit LED1=P0^0;
+sbit LED2=P0^1;
+sbit LED3=P0^3;
+sbit LED4=P0^2;
 
-sbit KEY=P0^2;
+uint8_t Flag = 0;
 
-#define KEY_PRESS	1
-#define KEY_NOPRESS	0
-
-uint8_t Flag=0,i=0,j=0;
-
-void Part1_ON(void)
-{
-    Part1 = 0;
-}
-void Part1_OFF(void)
-{
-    Part1 = 1;
+void INT0_Init(void){
+  IT0 = 1;   //只允许下降沿触发
+  EX0 = 1;    //中断外部中断0中断
+  EA = 1;     //允许存在中断
 }
 
-void Part2_ON(void)
-{
-    Part2 = 0;
-}
-void Part2_OFF(void)
-{
-    Part2 = 1;
-}
-
-uint8_t signkey(void)
-{
-    if(KEY==0)
+void INT0_handle(void) interrupt 0
     {
-        delay_ms(15);
-        if(KEY==0)
-        {
-            return KEY_PRESS;
-        }
-    }
-    return KEY_NOPRESS;
+        Flag ++ ;
+        Flag = Flag %2;
 }
-
 
 void main()
 {
-    uint8_t key;
+    uint16_t time = 0;
+    INT0_Init();
     while(1)
     {
-        key = signkey();
-        if(key==1)
+        if(time == 600)
         {
-           delay_ms(200);
-           j=0;
-           i=0;
-           Flag++;
-           Flag=Flag%2;//构建状态机，双状态
+            time = 0;
+            Flag ++ ;
+            Flag = Flag %2;
         }
-        if(Flag==0)//车行道亮绿，人行道红
+        if(Flag == 0)
         {
-            Part1_ON();
-            Part2_OFF();
+            LED1 = 0;
+            LED2 = 1;
+            LED3 = 0;
+            LED4 = 1;
         }
-        if(Flag==1)//与上状态相反
+        if(Flag == 1)
         {
-            Part1_OFF();
-            Part2_ON();
-        }
-        
-        j++;
+            LED1 = 1;
+            LED2 = 0;
+            LED3 = 1;
+            LED4 = 0;
+        } 
         delay_ms(10);
-        if(j>=200)
-        {
-        j=0;
-        i++;
-        if(i==2)
-        {
-        i=0;
-        Flag++;
-        Flag=Flag%2;//构建状态机，双状态
-        }
-        }
+        time++;
     }
 }

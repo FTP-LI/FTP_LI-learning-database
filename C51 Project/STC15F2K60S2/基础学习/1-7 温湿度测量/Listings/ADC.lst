@@ -1,7 +1,7 @@
-C51 COMPILER V9.59.0.0   ADC                                                               01/03/2024 14:51:13 PAGE 1   
+C51 COMPILER V9.54   ADC                                                                   01/08/2025 15:31:06 PAGE 1   
 
 
-C51 COMPILER V9.59.0.0, COMPILATION OF MODULE ADC
+C51 COMPILER V9.54, COMPILATION OF MODULE ADC
 OBJECT MODULE PLACED IN .\Objects\ADC.obj
 COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE Hardware\ADC.c LARGE OPTIMIZE(8,SPEED) BROWSE INCDIR(.\Hardware;.\System
                     -;.\User;C:\Keil_v5\C51\INC\STC) DEBUG OBJECTEXTEND PRINT(.\Listings\ADC.lst) OBJECT(.\Objects\ADC.obj)
@@ -50,7 +50,7 @@ line level    source
 
 
 MODULE INFORMATION:   STATIC OVERLAYABLE
-   CODE SIZE        =     48    ----
+   CODE SIZE        =     45    ----
    CONSTANT SIZE    =   ----    ----
    XDATA SIZE       =   ----    ----
    PDATA SIZE       =   ----    ----

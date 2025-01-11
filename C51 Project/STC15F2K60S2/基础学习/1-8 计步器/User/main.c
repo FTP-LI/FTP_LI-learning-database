@@ -1,10 +1,10 @@
 #include <STC15F2K60S2.H>
 #include "intrins.h"
 #include "Delay.h"
-#include "TM1637.h"
+#include "F2481.h"
 
-sbit BY=P0^1;
-sbit KEY1=P0^0;
+sbit BY=P1^4;
+sbit KEY1=P1^5;
 
 #define CMD_IDLE 0                  //空闲模式
 #define CMD_READ 1                  //IAP字节读命令
@@ -107,9 +107,10 @@ void main()
     S2 = (D2/100)%10;
     S3 = (D2/10)%10;
     S4 = D2%10;//数码管第四位
-    TM1637_Display(S1,S2,S3,S4,0);//断电显示
+    F24811_freshall(D2);//断电显示
     while(1)
     {
+        F24811_freshall(D2);
         if(KEY()==1)//当按键按下后复位
         {
             D1=0;
@@ -123,10 +124,6 @@ void main()
             IapProgramByte(0x200,D1);
         }
             D2 =IapReadByte(0x200);//从ROM中获取数据,步数高位
-            S1 = D2/1000;//数码管第一位
-            S2 = (D2/100)%10;
-            S3 = (D2/10)%10;
-            S4 = D2%10;//数码管第四位
-            TM1637_Display(S1,S2,S3,S4,0);//刷新显示
+            F24811_freshall(D2);//刷新显示
     }
 }

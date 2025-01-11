@@ -1,12 +1,10 @@
 #include <STC15F2K60S2.H>
-#include "OLED.h"
 #include "Delay.h"
-#include "TM1637.h"
-#include "KEY.h"
+#include "F2481.h"
 #include "DHT11.h"
 
 extern uint8_t HmdHighDec,TmpHighDec,HmdLowDec,TmpLowDec;
-uint8_t HH,HM,HL,TH,TM,TL;      //对应三位湿度显示和三位温度显示的高中低三位
+uint8_t HH,HM,TH,TM,FLAG=0,time=0;      //对应三位湿度显示和三位温度显示的高中低三位
 
 void datas_cout(void)
 {
@@ -14,44 +12,62 @@ void datas_cout(void)
     Tran_Dec();                 //数据转换
     HH=HmdHighDec/10;
     HM=HmdHighDec%10;
-    HL=HmdLowDec/10;
     TH=TmpHighDec/10;
     TM=TmpHighDec%10;
-    TL=TmpLowDec/10;            //显示数据处理
+}
+
+void INT0_Init(void){
+  IT0 = 1;   //只允许下降沿触发
+  EX0 = 1;    //中断外部中断0中断
+  EA = 1;     //允许存在中断
+}
+
+void INT0_handle(void) interrupt 0
+    {
+        FLAG++;
+        FLAG = FLAG%2;
+        time = 0;
+        delay_ms(10);
 }
 
 void main()
 {
-    uint8_t KEY;//按键标志位
     uint8_t N=0;//构建状态机
-    uint32_t time=0,TIM=0;//软件定时
+    uint32_t TIM=0;//软件定时
     datas_cout();                   //初始数据获取
+    INT0_Init();
     while(1)
     {
-        KEY=key_scan();//按键监测
-        if(KEY==1)
+        TIM ++;
+        time ++;
+        if(time == 3500)
         {
-            N++;                        //状态轮转
-            N=N%2;                      //对2取余保证两种状态即N=0和N=1
-            delay_ms(500);
+            time = 0;
+            FLAG++;
+            FLAG = FLAG%2;
         }
-        if(N==0)//温度显示模式
+        if(TIM == 600)
         {
-            TM1637_Display(TH,TM,TL,12,1);
+            datas_cout();
+            TIM = 0;
         }
-        else if(N==1)//湿度显示模式
+        if(FLAG == 0)//温度
         {
-            TM1637_Display(HH,HM,HL,16,1);
+            F24811_display(2,TH);
+            delay_ms(1);
+            F24811_display(3,TM);
+            delay_ms(1);
+            F24811_display(4,16);
+            delay_ms(1);
         }
-        time++;
-        if(time==2090)
+        if(FLAG == 1)//湿度
         {
-            time=0;
-            TIM++;
-            if(TIM==10000)
-            {
-               datas_cout();//数据刷新
-            }
-        }//软件定时效果，间隔大概10s误差5%
+            F24811_display(2,HH);
+            delay_ms(1);
+            F24811_display(3,HM);
+            delay_ms(1);
+            F24811_display(4,12);
+            delay_ms(1);
+        }
     }
 }

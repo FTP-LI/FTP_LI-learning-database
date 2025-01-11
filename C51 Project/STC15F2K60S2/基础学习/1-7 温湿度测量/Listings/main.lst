@@ -1,7 +1,7 @@
-C51 COMPILER V9.59.0.0   MAIN                                                              01/03/2024 14:51:13 PAGE 1   
+C51 COMPILER V9.54   MAIN                                                                  01/08/2025 20:54:39 PAGE 1   
 
 
-C51 COMPILER V9.59.0.0, COMPILATION OF MODULE MAIN
+C51 COMPILER V9.54, COMPILATION OF MODULE MAIN
 OBJECT MODULE PLACED IN .\Objects\main.obj
 COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE User\main.c LARGE OPTIMIZE(8,SPEED) BROWSE INCDIR(.\Hardware;.\System;.\
                     -User;C:\Keil_v5\C51\INC\STC) DEBUG OBJECTEXTEND PRINT(.\Listings\main.lst) OBJECT(.\Objects\main.obj)
@@ -9,70 +9,86 @@ COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE User\main.c LARGE OPTIMIZE(8,SPE
 line level    source
 
    1          #include <STC15F2K60S2.H>
-   2          #include "OLED.h"
-   3          #include "Delay.h"
-   4          #include "TM1637.h"
-   5          #include "KEY.h"
-   6          #include "DHT11.h"
-   7          
-   8          extern uint8_t HmdHighDec,TmpHighDec,HmdLowDec,TmpLowDec;
-   9          uint8_t HH,HM,HL,TH,TM,TL;      //对应三位湿度显示和三位温度显示的高中低三位
-  10          
-  11          void datas_cout(void)
-  12          {
-  13   1          DHT11_Receive();            //DHT11数据接收
-  14   1          Tran_Dec();                 //数据转换
-  15   1          HH=HmdHighDec/10;
-  16   1          HM=HmdHighDec%10;
-  17   1          HL=HmdLowDec/10;
-  18   1          TH=TmpHighDec/10;
-  19   1          TM=TmpHighDec%10;
-  20   1          TL=TmpLowDec/10;            //显示数据处理
-  21   1      }
-  22          
-  23          void main()
-  24          {
-  25   1          uint8_t KEY;//按键标志位
-  26   1          uint8_t N=0;//构建状态机
-  27   1          uint32_t time=0,TIM=0;//软件定时
-  28   1          datas_cout();                   //初始数据获取
-  29   1          while(1)
-  30   1          {
-  31   2              KEY=key_scan();//按键监测
-  32   2              if(KEY==1)
-  33   2              {
-  34   3                  N++;                        //状态轮转
-  35   3                  N=N%2;                      //对2取余保证两种状态即N=0和N=1
-  36   3                  delay_ms(500);
-  37   3              }
-  38   2              if(N==0)//温度显示模式
-  39   2              {
-  40   3                  TM1637_Display(TH,TM,TL,12,1);
-  41   3              }
-  42   2              else if(N==1)//湿度显示模式
-  43   2              {
-  44   3                  TM1637_Display(HH,HM,HL,16,1);
-  45   3              }
-  46   2              time++;
-  47   2              if(time==2090)
-  48   2              {
-  49   3                  time=0;
-  50   3                  TIM++;
-  51   3                  if(TIM==10000)
-  52   3                  {
-  53   4                     datas_cout();//数据刷新
-  54   4                  }
-C51 COMPILER V9.59.0.0   MAIN                                                              01/03/2024 14:51:13 PAGE 2   
+   2          #include "Delay.h"
+   3          #include "F2481.h"
+   4          #include "DHT11.h"
+   5          
+   6          extern uint8_t HmdHighDec,TmpHighDec,HmdLowDec,TmpLowDec;
+   7          uint8_t HH,HM,TH,TM,FLAG=0,time=0;      //对应三位湿度显示和三位温度显示的高中低三位
+   8          
+   9          void datas_cout(void)
+  10          {
+  11   1          DHT11_Receive();            //DHT11数据接收
+  12   1          Tran_Dec();                 //数据转换
+  13   1          HH=HmdHighDec/10;
+  14   1          HM=HmdHighDec%10;
+  15   1          TH=TmpHighDec/10;
+  16   1          TM=TmpHighDec%10;
+  17   1      }
+  18          
+  19          void INT0_Init(void){
+  20   1        IT0 = 1;   //只允许下降沿触发
+  21   1        EX0 = 1;    //中断外部中断0中断
+  22   1        EA = 1;     //允许存在中断
+  23   1      }
+  24          
+  25          void INT0_handle(void) interrupt 0
+  26              {
+  27   1              FLAG++;
+  28   1              FLAG = FLAG%2;
+  29   1              time = 0;
+  30   1              delay_ms(10);
+  31   1      }
+  32          
+  33          void main()
+  34          {
+  35   1          uint8_t N=0;//构建状态机
+  36   1          uint32_t TIM=0;//软件定时
+  37   1          datas_cout();                   //初始数据获取
+  38   1          INT0_Init();
+  39   1          while(1)
+  40   1          {
+  41   2              TIM ++;
+  42   2              time ++;
+  43   2              if(time == 3500)
+  44   2              {
+  45   3                  time = 0;
+  46   3                  FLAG++;
+  47   3                  FLAG = FLAG%2;
+  48   3              }
+  49   2              if(TIM == 600)
+  50   2              {
+  51   3                  datas_cout();
+  52   3                  TIM = 0;
+  53   3              }
+  54   2              if(FLAG == 0)//温度
+C51 COMPILER V9.54   MAIN                                                                  01/08/2025 20:54:39 PAGE 2   
 
-  55   3              }//软件定时效果，间隔大概10s误差5%
-  56   2          }
-  57   1      }
+  55   2              {
+  56   3                  F24811_display(2,TH);
+  57   3                  delay_ms(1);
+  58   3                  F24811_display(3,TM);
+  59   3                  delay_ms(1);
+  60   3                  F24811_display(4,16);
+  61   3                  delay_ms(1);
+  62   3              }
+  63   2              if(FLAG == 1)//湿度
+  64   2              {
+  65   3                  F24811_display(2,HH);
+  66   3                  delay_ms(1);
+  67   3                  F24811_display(3,HM);
+  68   3                  delay_ms(1);
+  69   3                  F24811_display(4,12);
+  70   3                  delay_ms(1);
+  71   3              }
+  72   2          }
+  73   1      }
 
 
 MODULE INFORMATION:   STATIC OVERLAYABLE
-   CODE SIZE        =    336    ----
+   CODE SIZE        =    393    ----
    CONSTANT SIZE    =   ----    ----
-   XDATA SIZE       =      6       9
+   XDATA SIZE       =      6       5
    PDATA SIZE       =   ----    ----
    DATA SIZE        =   ----    ----
    IDATA SIZE       =   ----    ----

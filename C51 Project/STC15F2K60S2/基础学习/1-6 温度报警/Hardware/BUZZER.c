@@ -2,7 +2,7 @@
 #include "BUZZER.h"
 #include "Delay.h"
 
-sbit BUZZER = P0^0;
+sbit BUZZER = P1^5;
 
 void BUZZER_ON(void)
 {

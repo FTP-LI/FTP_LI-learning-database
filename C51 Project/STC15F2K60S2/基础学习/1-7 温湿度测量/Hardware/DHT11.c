@@ -2,7 +2,7 @@
 #include <STC15F2K60S2.H>
 #include "Delay.h"
 
-sbit DHT11_data = P1^3;				//DHT11数据口用P1.3
+sbit DHT11_data = P1^4;				//DHT11数据口用P1.3
 
 uint8_t HmdHighDec,TmpHighDec,HmdLowDec,TmpLowDec;//用户变量通过extern调用
 

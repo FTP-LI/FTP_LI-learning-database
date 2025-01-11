@@ -1,6 +1,6 @@
 #include <STC15F2K60S2.H>
 #include "Delay.h"
-#include "TM1637.h"
+#include "F2481.h"
 
 #define ADC_POWER 0x80
 #define ADC_START 0x08
@@ -43,16 +43,21 @@ void main()
     ADC_Init();
     while(1)
     {
+        
         for(n=0;n<10;n++)
             {
                a[n]= Gat_ADC();
             }
-        V=(a[0]+a[1]+a[2]+a[3]+a[4]+a[5]+a[6]+a[7]+a[8]+a[9])/10;
-        V=V*0.019607*10;//电压值转换,取三位*100
-        D1=V/100;
-        D2=(V/10)%10;
-        D3=V%10;//数据转换
-        TM1637_Display(D1,D2,D3,20,1);//显示电压
-        delay_ms(1000);
+            V=(a[0]+a[1]+a[2]+a[3]+a[4]+a[5]+a[6]+a[7]+a[8]+a[9])/10;
+            V=V*0.019607*10;//电压值转换,取三位*100
+            D1=V/100;
+            D2=(V/10)%10;
+            D3=V%10;//数据转换
+            F24811_display(2,D2);
+            delay_ms(1);
+            F24811_display(3,D3);
+            delay_ms(1);
+            F24811_display(4,20); 
+            delay_ms(1);            
     }
 }

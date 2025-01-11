@@ -1,7 +1,7 @@
-C51 COMPILER V9.59.0.0   DHT11                                                             01/03/2024 14:51:13 PAGE 1   
+C51 COMPILER V9.54   DHT11                                                                 01/08/2025 20:54:39 PAGE 1   
 
 
-C51 COMPILER V9.59.0.0, COMPILATION OF MODULE DHT11
+C51 COMPILER V9.54, COMPILATION OF MODULE DHT11
 OBJECT MODULE PLACED IN .\Objects\DHT11.obj
 COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE Hardware\DHT11.c LARGE OPTIMIZE(8,SPEED) BROWSE INCDIR(.\Hardware;.\Syst
                     -em;.\User;C:\Keil_v5\C51\INC\STC) DEBUG OBJECTEXTEND PRINT(.\Listings\DHT11.lst) OBJECT(.\Objects\DHT11.obj)
@@ -12,7 +12,7 @@ line level    source
    2          #include <STC15F2K60S2.H>
    3          #include "Delay.h"
    4          
-   5          sbit DHT11_data = P1^3;                         //DHT11数据口用P1.3
+   5          sbit DHT11_data = P1^4;                         //DHT11数据口用P1.3
    6          
    7          uint8_t HmdHighDec,TmpHighDec,HmdLowDec,TmpLowDec;//用户变量通过extern调用
    8          
@@ -62,7 +62,7 @@ line level    source
   52   2                      check = DHT11_Byte();
   53   2                      DHT11_data = 0;                                             //数据接收完成，拉低总线50us
   54   2                      delay_us(56);                                                                   
-C51 COMPILER V9.59.0.0   DHT11                                                             01/03/2024 14:51:13 PAGE 2   
+C51 COMPILER V9.54   DHT11                                                                 01/08/2025 20:54:39 PAGE 2   
 
   55   2                      DHT11_data = 1;                                             //拉高总线，进入空闲状态
   56   2                      numcheck = HmdH + HmdL + TmpH + TmpL;   //校验和
@@ -126,7 +126,7 @@ line level    source
  114   1          for(i = 0;i < 8;i++)
  115   1              {
  116   2                      temp = TmpLow & 0x01;
-C51 COMPILER V9.59.0.0   DHT11                                                             01/03/2024 14:51:13 PAGE 3   
+C51 COMPILER V9.54   DHT11                                                                 01/08/2025 20:54:39 PAGE 3   
 
  117   2                      switch (i)
  118   2                      {
@@ -167,7 +167,7 @@ line level    source
 
 
 MODULE INFORMATION:   STATIC OVERLAYABLE
-   CODE SIZE        =   1100    ----
+   CODE SIZE        =   1059    ----
    CONSTANT SIZE    =   ----    ----
    XDATA SIZE       =     15       4
    PDATA SIZE       =   ----    ----

@@ -3,7 +3,7 @@
 #include "Delay.h"
 #include "Sys.h"
 
-sbit DS = P1^3;//信号接口
+sbit DS = P1^4;//信号接口
 
 uint16_t DS18B20_Tempreature = 0;       //存放DS18B20测得的温度
 uint16_t Timer0_Count = 0;              //用于定时器0计数

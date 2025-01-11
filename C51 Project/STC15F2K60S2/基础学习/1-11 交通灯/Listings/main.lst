@@ -1,7 +1,7 @@
-C51 COMPILER V9.59.0.0   MAIN                                                              01/06/2024 04:48:49 PAGE 1   
+C51 COMPILER V9.54   MAIN                                                                  01/08/2025 15:49:15 PAGE 1   
 
 
-C51 COMPILER V9.59.0.0, COMPILATION OF MODULE MAIN
+C51 COMPILER V9.54, COMPILATION OF MODULE MAIN
 OBJECT MODULE PLACED IN .\Objects\main.obj
 COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE User\main.c LARGE OPTIMIZE(8,SPEED) BROWSE INCDIR(.\Hardware;.\System;.\
                     -User;C:\Keil_v5\C51\INC\STC) DEBUG OBJECTEXTEND PRINT(.\Listings\main.lst) OBJECT(.\Objects\main.obj)
@@ -11,96 +11,65 @@ line level    source
    1          #include <STC15F2K60S2.H>
    2          #include "Delay.h"
    3          
-   4          sbit Part1=P0^1;
-   5          sbit Part2=P0^3;
-   6          
-   7          sbit KEY=P0^2;
+   4          sbit LED1=P0^0;
+   5          sbit LED2=P0^1;
+   6          sbit LED3=P0^3;
+   7          sbit LED4=P0^2;
    8          
-   9          #define KEY_PRESS       1
-  10          #define KEY_NOPRESS     0
-  11          
-  12          uint8_t Flag=0,i=0,j=0;
-  13          
-  14          void Part1_ON(void)
-  15          {
-  16   1          Part1 = 0;
-  17   1      }
-  18          void Part1_OFF(void)
-  19          {
-  20   1          Part1 = 1;
+   9          uint8_t Flag = 0;
+  10          
+  11          void INT0_Init(void){
+  12   1        IT0 = 1;   //只允许下降沿触发
+  13   1        EX0 = 1;    //中断外部中断0中断
+  14   1        EA = 1;     //允许存在中断
+  15   1      }
+  16          
+  17          void INT0_handle(void) interrupt 0
+  18              {
+  19   1              Flag ++ ;
+  20   1              Flag = Flag %2;
   21   1      }
   22          
-  23          void Part2_ON(void)
+  23          void main()
   24          {
-  25   1          Part2 = 0;
-  26   1      }
-  27          void Part2_OFF(void)
-  28          {
-  29   1          Part2 = 1;
-  30   1      }
-  31          
-  32          uint8_t signkey(void)
-  33          {
-  34   1          if(KEY==0)
-  35   1          {
-  36   2              delay_ms(15);
-  37   2              if(KEY==0)
-  38   2              {
-  39   3                  return KEY_PRESS;
-  40   3              }
-  41   2          }
-  42   1          return KEY_NOPRESS;
-  43   1      }
-  44          
-  45          
-  46          void main()
-  47          {
-  48   1          uint8_t key;
-  49   1          while(1)
-  50   1          {
-  51   2              key = signkey();
-  52   2              if(key==1)
-  53   2              {
-  54   3                 delay_ms(200);
-C51 COMPILER V9.59.0.0   MAIN                                                              01/06/2024 04:48:49 PAGE 2   
+  25   1          uint16_t time = 0;
+  26   1          INT0_Init();
+  27   1          while(1)
+  28   1          {
+  29   2              if(time == 600)
+  30   2              {
+  31   3                  time = 0;
+  32   3                  Flag ++ ;
+  33   3                  Flag = Flag %2;
+  34   3              }
+  35   2              if(Flag == 0)
+  36   2              {
+  37   3                  LED1 = 0;
+  38   3                  LED2 = 1;
+  39   3                  LED3 = 0;
+  40   3                  LED4 = 1;
+  41   3              }
+  42   2              if(Flag == 1)
+  43   2              {
+  44   3                  LED1 = 1;
+  45   3                  LED2 = 0;
+  46   3                  LED3 = 1;
+  47   3                  LED4 = 0;
+  48   3              } 
+  49   2              delay_ms(10);
+  50   2              time++;
+  51   2          }
+  52   1         
+  53   1      
+  54   1      }
+C51 COMPILER V9.54   MAIN                                                                  01/08/2025 15:49:15 PAGE 2   
 
-  55   3                 j=0;
-  56   3                 i=0;
-  57   3                 Flag++;
-  58   3                 Flag=Flag%2;//构建状态机，双状态
-  59   3              }
-  60   2              if(Flag==0)//车行道亮绿，人行道红
-  61   2              {
-  62   3                  Part1_ON();
-  63   3                  Part2_OFF();
-  64   3              }
-  65   2              if(Flag==1)//与上状态相反
-  66   2              {
-  67   3                  Part1_OFF();
-  68   3                  Part2_ON();
-  69   3              }
-  70   2              
-  71   2              j++;
-  72   2              delay_ms(10);
-  73   2              if(j>=200)
-  74   2              {
-  75   3              j=0;
-  76   3              i++;
-  77   3              if(i==2)
-  78   3              {
-  79   4              i=0;
-  80   4              Flag++;
-  81   4              Flag=Flag%2;//构建状态机，双状态
-  82   4              }
-  83   3              }
-  84   2          }
-  85   1      }
 
 
 MODULE INFORMATION:   STATIC OVERLAYABLE
-   CODE SIZE        =    152    ----
+   CODE SIZE        =    123    ----
    CONSTANT SIZE    =   ----    ----
-   XDATA SIZE       =      3    ----
+   XDATA SIZE       =      1       2
    PDATA SIZE       =   ----    ----
    DATA SIZE        =   ----    ----
    IDATA SIZE       =   ----    ----

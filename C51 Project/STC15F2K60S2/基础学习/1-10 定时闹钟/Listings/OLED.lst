@@ -1,7 +1,7 @@
-C51 COMPILER V9.59.0.0   OLED                                                              01/08/2024 20:29:58 PAGE 1   
+C51 COMPILER V9.54   OLED                                                                  01/08/2025 13:57:02 PAGE 1   
 
 
-C51 COMPILER V9.59.0.0, COMPILATION OF MODULE OLED
+C51 COMPILER V9.54, COMPILATION OF MODULE OLED
 OBJECT MODULE PLACED IN .\Objects\OLED.obj
 COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE Hardware\OLED.c LARGE OPTIMIZE(8,SPEED) BROWSE INCDIR(.\Hardware;.\Syste
                     -m;.\User;C:\Keil_v5\C51\INC\STC) DEBUG OBJECTEXTEND PRINT(.\Listings\OLED.lst) OBJECT(.\Objects\OLED.obj)
@@ -62,7 +62,7 @@ line level    source
   52          {
   53   1          IIC_Start();
   54   1          Write_IIC_Byte(0x78);//µØÖ·
-C51 COMPILER V9.59.0.0   OLED                                                              01/08/2024 20:29:58 PAGE 2   
+C51 COMPILER V9.54   OLED                                                                  01/08/2025 13:57:02 PAGE 2   
 
   55   1          IIC_Wait_Ack();
   56   1          Write_IIC_Byte(0x00);//Ö¸Áî
@@ -126,7 +126,7 @@ line level    source
  114   1              {
  115   2                      OLED_ShowChar(Line, Column + i, String[i]);
  116   2              }
-C51 COMPILER V9.59.0.0   OLED                                                              01/08/2024 20:29:58 PAGE 3   
+C51 COMPILER V9.54   OLED                                                                  01/08/2025 13:57:02 PAGE 3   
 
  117   1      }
  118          
@@ -190,7 +190,7 @@ line level    source
  173   2              }
  174   1      }
  175          
-C51 COMPILER V9.59.0.0   OLED                                                              01/08/2024 20:29:58 PAGE 4   
+C51 COMPILER V9.54   OLED                                                                  01/08/2025 13:57:02 PAGE 4   
 
  176          void OLED_ShowBinNum(uint8_t Line, uint8_t Column, uint32_t Number, uint8_t Length)//OLEDÏÔÊ¾Êý×Ö£¨¶þ½øÖÆ£
              -¬ÕýÊý£©
@@ -250,11 +250,11 @@ line level    source
 
 
 MODULE INFORMATION:   STATIC OVERLAYABLE
-   CODE SIZE        =   1345    ----
+   CODE SIZE        =   1302    ----
    CONSTANT SIZE    =   1520    ----
    XDATA SIZE       =   ----      66
    PDATA SIZE       =   ----    ----
-C51 COMPILER V9.59.0.0   OLED                                                              01/08/2024 20:29:58 PAGE 5   
+C51 COMPILER V9.54   OLED                                                                  01/08/2025 13:57:02 PAGE 5   
 
    DATA SIZE        =   ----    ----
    IDATA SIZE       =   ----    ----
