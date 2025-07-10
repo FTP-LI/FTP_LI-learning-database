@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>红外串口通信说明.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<h1 id="%E7%BA%A2%E5%A4%96%E4%B8%B2%E5%8F%A3%E9%80%9A%E4%BF%A1%E8%AF%B4%E6%98%8E">红外串口通信说明</h1>
+<h2 id="%E6%A6%82%E8%BF%B0">概述</h2>
+<p>通过串口和IR模块进行通信。移植串口协议需要修改 ir_uart_msg_deal.c 和
+ir_uart_msg_deal.h文件，详细参考 <a href="#4%E4%B8%B2%E5%8F%A3%E5%8D%8F%E8%AE%AE%E7%A7%BB%E6%A4%8D%E8%AF%B4%E6%98%8E">4.串口协议移植说明</a></p>
+<h2 id="1-%E4%B8%B2%E5%8F%A3%E5%88%9D%E5%A7%8B%E5%8C%96">1. 串口初始化</h2>
+<p>初始化串口硬件，buf申请，目前CI110X模块这边默认设置的波特率为9600。</p>
+<pre class="hljs"><code><div><span class="hljs-comment">/**
+ * @brief IR 串口通信初始化
+ * 
+ * @return int -1 错误， 0 成功
+ */</span>
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">ir_uart_buff_init</span><span class="hljs-params">(<span class="hljs-keyword">void</span>)</span></span>;
+</div></code></pre>
+<h2 id="2-%E6%95%B0%E6%8D%AE%E5%8F%91%E9%80%81">2. 数据发送</h2>
+<p>发送串口数据，发送数据或者命令,其中的 msg_type 为两个字节</p>
+<p>目前支持的命令为：</p>
+<pre class="hljs"><code><div>
+<span class="hljs-comment">/**
+ * @brief unsigned short
+ * 如果需要发送电平数据，input 数据需要为 ushort 类型数组数据，
+ * 且原始电平数据需要除以 IR_DATA_DIV_COEFFICIENT 系数，目前为2
+ */</span>
+<span class="hljs-keyword">typedef</span> <span class="hljs-keyword">enum</span>
+{
+    IR_CMD_RECEIVE_START = <span class="hljs-number">0x1000</span>, <span class="hljs-comment">//开始接收数据</span>
+    IR_CMD_RECEIVE_STOP,           <span class="hljs-comment">//结束接收</span>
+    IR_CMD_LEVEL_SEND,             <span class="hljs-comment">//发送电平数据</span>
+    IR_CMD_LEVEL_MATCH,            <span class="hljs-comment">//匹配电平数据</span>
+    IR_CMD_LEVEL_LEARN,            <span class="hljs-comment">//学习电平数据</span>
+    IR_CMD_DEV_RECV_IR_DATA,       <span class="hljs-comment">//设备接收到的红外数据</span>
+    IR_CMD_DEV_MATCH_OK,           <span class="hljs-comment">//设备匹配成功，设备返回数据，fill_data为匹配ID</span>
+    IR_CMD_DEV_MATCH_ERR,          <span class="hljs-comment">//设备匹配失败，设备返回匹配失败</span>
+    IR_CMD_SET_AIR_CODE_ID,        <span class="hljs-comment">//设置空调红外码ID，ID号放到fill_data</span>
+    IR_CMD_ACK = <span class="hljs-number">0xFAFA</span>,           <span class="hljs-comment">//ACK 回复信息</span>
+} <span class="hljs-keyword">ir_uart_cmd_t</span>;
+
+</div></code></pre>
+<p>发送数据接口如下：</p>
+<br />
+<pre class="hljs"><code><div><span class="hljs-comment">/**
+ * @brief 发送消息到设备端
+ * 
+ * @param msg_type 消息类型
+ * @param input 数据包，为NULL时，只发对应msg_type
+ * @param len 数据包长度,为0时，只发对应msg_type
+ * @param fill_data 填充信息
+ * @return int -1 错误， 返回发送数据长度
+ */</span>
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">send_server_data_to_device</span><span class="hljs-params">(<span class="hljs-keyword">ir_uart_cmd_t</span> msg_type, <span class="hljs-keyword">const</span> <span class="hljs-keyword">unsigned</span> <span class="hljs-keyword">char</span> *input, <span class="hljs-keyword">int</span> len,<span class="hljs-keyword">unsigned</span> <span class="hljs-keyword">int</span> fill_data)</span></span>;
+
+</div></code></pre>
+<h2 id="3-%E6%95%B0%E6%8D%AE%E6%8E%A5%E6%94%B6%E8%A7%A3%E7%A0%81">3. 数据接收、解码</h2>
+<p>接收串口数据，解析出正确指令和数据包。</p>
+<pre class="hljs"><code><div>
+<span class="hljs-comment">/**
+ * @brief 串口数据解析
+ * 
+ * @param char 串口数据
+ * @param data_len 数据长度
+ * @return int 0 解析成功，-1 解析错误
+ */</span>
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">uart_data_decode</span><span class="hljs-params">(<span class="hljs-keyword">unsigned</span> <span class="hljs-keyword">char</span>* uart_data, <span class="hljs-keyword">int</span> data_len)</span></span>;
+
+</div></code></pre>
+<h2 id="4%E4%B8%B2%E5%8F%A3%E5%8D%8F%E8%AE%AE%E7%A7%BB%E6%A4%8D%E8%AF%B4%E6%98%8E">4.串口协议移植说明</h2>
+<p>移植时需要修改 <code>ir_uart_msg_deal.c</code> 文件中部分接口。</p>
+<pre class="hljs"><code><div>
+<span class="hljs-comment">/* 需要修改的接口 */</span>
+<span class="hljs-function"><span class="hljs-keyword">static</span> <span class="hljs-keyword">int</span> <span class="hljs-title">write_device_data_interface</span><span class="hljs-params">(<span class="hljs-keyword">unsigned</span> <span class="hljs-keyword">char</span> *file_data, <span class="hljs-keyword">int</span> file_lenth)</span></span>;
+<span class="hljs-function"><span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> *<span class="hljs-title">ir_malloc</span><span class="hljs-params">(<span class="hljs-keyword">unsigned</span> <span class="hljs-keyword">int</span> want_size)</span></span>;
+<span class="hljs-function"><span class="hljs-keyword">static</span> <span class="hljs-keyword">int</span> <span class="hljs-title">ir_uart_port_hw_init</span><span class="hljs-params">(<span class="hljs-keyword">void</span>)</span></span>;
+
+</div></code></pre>
+<p>数据解析时需要调用 <code>int uart_data_decode(unsigned char* uart_data, int data_len)</code> 解析串口接收到的数据，用户可以根据解析出的命令自己添加处理方法，下面为部分示例代码，详情查看 <a href="ir_uart_msg_deal.c" title="IR UART">ir_uart_msg_deal.c</a> 中完整示例代码。</p>
+<br />
+<br />
+<br />
+<pre class="hljs"><code><div>
+<span class="hljs-keyword">switch</span> (msg_type)
+{
+    <span class="hljs-comment">/* 接收到ACK */</span>
+    <span class="hljs-keyword">case</span> IR_CMD_ACK:
+    {
+        IR_UART_DEBUG(<span class="hljs-string">"IR_CMD_ACK"</span>);
+        <span class="hljs-keyword">break</span>;
+    }
+
+    <span class="hljs-keyword">default</span>:
+        IR_UART_DEBUG(<span class="hljs-string">"not deal"</span>);
+        <span class="hljs-keyword">break</span>;
+}
+
+</div></code></pre>
+
+</body>
+</html>

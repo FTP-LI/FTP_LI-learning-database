@@ -1,0 +1,8 @@
+Name: "port"
+
+Src:
+    - ci110x_speex.c
+
+Inc:
+    - ci110x_speex.h
+    - speex_config.h

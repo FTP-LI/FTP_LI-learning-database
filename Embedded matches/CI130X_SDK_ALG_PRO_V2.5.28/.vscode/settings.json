@@ -1,0 +1,33 @@
+{
+    "ci-tool.flag": "chipintelli-project",
+    "ci-tool.activated_project": "offline_asr_alg_pro_sample",
+    "ci-tool.make_thread_number": "20",
+    // "ci-tool.make_thread_number": "1",
+    "terminal.integrated.env.windows": {"PATH": "${env:PATH};${config:ci-tool.COMPILER_PATH};${workspaceFolder}/tools/build-tools/bin;"},
+    "terminal.integrated.env.linux": {
+        "PATH": "${env:PATH};${config:ci-tool.COMPILER_PATH};${workspaceFolder}/tools/build-tools/bin;"
+    },
+    "files.associations": {
+        "*.log": "log",
+        "user_config.h": "c",
+        "voice_print_protocol.h": "c",
+        "ci_log.h": "c",
+        "chipintelli_cloud_protocol.h": "c",
+        "voice_print_recognition.h": "c",
+        "ci130x_iwdg.h": "c",
+        "remote_api_for_host.h": "c",
+        "cias_task_main.h": "c",
+        "ir_test_protocol.h": "c",
+        "ci_assert.h": "c",
+        "ci130x_system.h": "c",
+        "alc_auto_switch.h": "c",
+        "sed_manage.h": "c",
+        "debug_time_consuming.h": "c",
+        "ci130x_audio_pre_rslt_out.h": "c"
+    },
+    "ci-tool.download-serial-port": "COM2",
+}
+
+
+
+

@@ -1,0 +1,7 @@
+Name: "speex"
+
+Group: 
+    - libspeex
+    - include
+    - port
+    - src
